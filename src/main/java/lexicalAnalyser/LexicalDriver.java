@@ -1,21 +1,17 @@
 package lexicalAnalyser;
 
 import java.io.File;
-import java.util.Scanner;
 
 public class LexicalDriver {
-
     public static void main(String[] args) {
-//      lexnegativegrading.src lexpositivegrading.src
+//      lexnegativegrading.src lexpositivegrading.src commentstests.src numbertests.src stringidentifierstests.src
         final String path = "testcases/LexicalAnalyserTest/";
-        Scanner sc = new Scanner(System.in);
-        String filename = sc.next();
-        File f = new File(path + filename);
+        File f = new File(path);
         if (f.isDirectory()) {
             File[] files = f.listFiles(((dir, name) -> name.endsWith(".src")));
             if (files != null) {
                 for (File file : files) {
-                  TokenizeFile(file.getAbsolutePath());
+                    TokenizeFile(file.getAbsolutePath());
                 }
             }
         } else {

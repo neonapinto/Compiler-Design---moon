@@ -1,5 +1,8 @@
 package lexicalAnalyser;
 
+/**
+ * class for storing token attributes
+ */
 public class Token {
     private String type;
     private String lexeme;

@@ -3,37 +3,127 @@ package lexicalAnalyser;
 import java.io.*;
 
 public class LexicalAnalyser {
-    private static State[] transition_table;    // an array storing states
-    private BufferedReader bufferedReader;
+    private Token curr_token;           // token for storing object info
+    private StringBuilder curr_lexeme;  // stores the lexeme for the current token
+    private int curr_line;              // records the current line
+    private int out_line;               // for outputting token file
+    private Character backtrack_char;      // back up the current char in case of backtrace
+    private boolean is_finished;        // end of file
+    private int cmt_counter;         // counter for nested comments
+    private static State[] transition_table;    // an array for  storing states
+    private BufferedReader bufferedReader; //file variables
     private PrintWriter writer_tok;
     private PrintWriter writer_err;
     private StringWriter string_err;
     private PrintWriter writer_string_err;
-    public String lexical_errors;
-    private Token curr_token;           // token object storing info
-    private StringBuilder curr_lexeme;  // records the lexeme for the current token
-    private int curr_line;              // records the current line
-    private int out_line;               // for printing token file
-    private Character backtrack_char;      // back up the current char in case of backtrace
-    private boolean is_finished;        // end of file
-    private int num_nested_cmt;         // for nested comments
+    public String errors; // to store the errors
 
     public LexicalAnalyser() {
         curr_line = 1;
         out_line = 1;
         is_finished = false;
-        num_nested_cmt = 0;
+        cmt_counter = 0;
         string_err = new StringWriter();
         writer_string_err = new PrintWriter(string_err);
     }
+
+    /**
+     * Creates and returns a structure that contains the token type, location which is the line number in the source code,
+     * and its lexeme for the token corresponding to a state, as per in the state transition table.
+     * @param state that represents a token
+     * @return a Token object for writing to file
+     */
+    public Token createToken(int state) {
+        int token_line = curr_line;
+        String type = transition_table[state].getState_name();
+        String lexeme = curr_lexeme.toString().trim();
+        if (type.equals("operators")) {
+            switch (lexeme) {
+                case "+":
+                    type = "plus";
+                    break;
+                case "*":
+                    type = "multiplication";
+                    break;
+                case ".":
+                    type = "dot";
+                    break;
+                case "|":
+                    type = "or";
+                    break;
+                case "&":
+                    type = "and";
+                    break;
+                case "!":
+                    type = "not";
+                    break;
+                case "(":
+                    type = "openpar";
+                    break;
+                case ")":
+                    type = "closepar";
+                    break;
+                case "{":
+                    type = "opencurlybr";
+                    break;
+                case "}":
+                    type = "closecurlybr";
+                    break;
+                case "[":
+                    type = "opensquarebr";
+                    break;
+                case "]":
+                    type = "closesquarebr";
+                    break;
+                case ";":
+                    type = "semicolon";
+                    break;
+                case ",":
+                    type = "comma";
+                    break;
+            }
+        }
+
+        // checking for the reserved word if the type is ID
+        if (type.equals("id")) {
+            if (lexeme.equals("if") | lexeme.equals("then") | lexeme.equals("else") | lexeme.equals("integer")
+                    | lexeme.equals("float") | lexeme.equals("void") | lexeme.equals("public")
+                    | lexeme.equals("private") | lexeme.equals("func") | lexeme.equals("var") | lexeme.equals("struct")
+                    | lexeme.equals("while") | lexeme.equals("func") | lexeme.equals("read") | lexeme.equals("write") | lexeme.equals("return")
+                    | lexeme.equals("self") | lexeme.equals("inherits") | lexeme.equals("let") | lexeme.equals("impl")) {
+                type = lexeme;
+            }
+        }
+
+        //block comments
+        if (type.equals("blockcmt") || type.equals("invalidcmt")) {
+            lexeme = lexeme.replaceAll("\r\n|\n", "\\\\n");
+            int num_line = 0;  // recording the number of lines in comments
+            int old_index = 0;
+            int new_index;
+            while ((new_index = lexeme.indexOf("\\n", old_index)) > -1) {
+                num_line++;
+                old_index = new_index + 2;
+            }
+            token_line = curr_line - num_line;
+        }
+
+        // creating a new token
+        curr_token = new Token(type, lexeme, token_line);
+        if (type.contains("invalid")) {
+            curr_token.setIs_error(true);
+        }
+        return curr_token;
+    }
+
 
     public boolean isFinished() {
         return is_finished;
     }
 
     /**
-     * set up the reader and writer
-     * @param file_path the path of .src files
+     * set up the files for reading and writing
+     * @param file_path the path to be read
      */
     public void writeToFiles(String file_path) {
         try {
@@ -59,7 +149,7 @@ public class LexicalAnalyser {
     }
 
     /**
-     * flush contents to files and close files
+     * flush files and close files
      */
     public void closeFiles() {
         System.out.println("Flushing & closing files. ");
@@ -69,12 +159,17 @@ public class LexicalAnalyser {
             writer_tok.close();
             writer_err.flush();
             writer_err.close();
-            lexical_errors = string_err.toString();
+            errors = string_err.toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Adding transitions in the table
+     * @param state  for which the values are set
+     * @param next_state the values set in the state
+     */
     private void add_transitions(int state, int[] next_state) {
         char[] characters = {'L', 'e', '0', 'N', '_', '/', '*', '=', '<', '>', ':', '+', '-', '&', '.', ' ', '\n', '\r', '~', '\u0000'};
         for (int i = 0; i < 20; i++) {
@@ -82,11 +177,22 @@ public class LexicalAnalyser {
         }
     }
 
+    /**
+     * setting the non final state as per the table
+     * @param index state for which the state is set
+     * @param next_state
+     */
     private void setNonFinalState(int index, int[] next_state) {
         transition_table[index] = new State(index);
         add_transitions(index, next_state);
     }
 
+    /**
+     * setting the final state as per the table
+     * @param index state for which the state is set
+     * @param final_state_name name of the final state
+     * @param backtrack true if we can backtrack, else false
+     */
     private void setFinalState(int index, String final_state_name, boolean backtrack) {
         transition_table[index] = new State(index, true, final_state_name, backtrack);
     }
@@ -179,9 +285,9 @@ public class LexicalAnalyser {
 
 
     /**
-     * Called by syntactic analyzer
+     * calls the token character by character
      *
-     * @return Extract the next token in the program
+     * @return extracts the next token in the file
      */
     public Token nextToken() {
         int curr_state = 1;
@@ -224,16 +330,17 @@ public class LexicalAnalyser {
     }
 
     /**
+     * function to process the nexted comments
      * @param current state
      * @return the state after dealing with nested block comments case
      */
     private int nestedComments(int current) {
         if (current == 30) {
-            num_nested_cmt++;
+            cmt_counter++;
         }
         if (current == 48) {
-            num_nested_cmt--;
-            if (num_nested_cmt == 0) {
+            cmt_counter--;
+            if (cmt_counter == 0) {
                 return 32;
             }
         }
@@ -241,7 +348,26 @@ public class LexicalAnalyser {
     }
 
     /**
-     * write the info to output buffers
+     * function to lookup the characters in the table
+     * @param state the current state
+     * @return Returns the value corresponding to [state,column] in the state transition table.
+     * @Param column corresponding to input character in the transition table
+     */
+    public Integer lookupTable(int state, char column) {
+        // reduce transitions in final state since they all go to state 1
+        if (transition_table[state].isFinalState()) {
+            return 1;
+        }
+
+        Integer next = transition_table[state].getTransitions().get(column);
+        if (next != null) {
+            return next;
+        } else
+            return 0;
+    }
+
+    /**
+     * writing to the file
      */
     public void writeToBuffers() {
 
@@ -270,7 +396,7 @@ public class LexicalAnalyser {
                     writer_string_err.append("Lexical error: Invalid identifier: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
                 case "invalidcmt":
-                    num_nested_cmt = 0;
+                    cmt_counter = 0;
                     writer_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     writer_string_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
@@ -279,22 +405,7 @@ public class LexicalAnalyser {
     }
 
     /**
-     * @return the next character read in the input program
-     */
-    public char nextChar() {
-        try {
-            if (backtrack_char != null) {
-                return backtrack_char;
-            }
-            int lookup = bufferedReader.read();
-            return (char) lookup;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return '~';
-        }
-    }
-
-    /**
+     * Mapping the character to the input
      * @param character character read in the file
      * @return character in the table after mapping
      */
@@ -323,117 +434,21 @@ public class LexicalAnalyser {
         }
     }
 
-
     /**
-     * @param state the current state
-     * @return Returns the value corresponding to [state,column] in the state transition table.
-     * @Param column corresponding to input character in the transition table
+     * function to read chracters one by one
+     * @return the next character read in the input program
      */
-    public Integer lookupTable(int state, char column) {
-        // reduce transitions in final state since they all go to state 1
-        if (transition_table[state].isFinalState()) {
-            return 1;
-        }
-
-        Integer next = transition_table[state].getTransitions().get(column);
-        if (next != null) {
-            return next;
-        } else
-            return 0;
-    }
-
-    /**
-     * Creates and returns a structure that contains the token type, its location in the source code,
-     * and its value (for literals), for the token kind corresponding to a state,
-     * as found in the state transition table.
-     *
-     * @param state that represents a token
-     * @return a Token object for writing to buffers
-     */
-    public Token createToken(int state) {
-
-        int token_line = curr_line;   // record the line of the current token
-        String type = transition_table[state].getState_name();
-        String lexeme = curr_lexeme.toString().trim();
-
-        // Assigning types for the symbol
-        if (type.equals("operators")) {
-            switch (lexeme) {
-                case "+":
-                    type = "plus";
-                    break;
-                case "*":
-                    type = "multiplication";
-                    break;
-                case ".":
-                    type = "dot";
-                    break;
-                case "|":
-                    type = "or";
-                    break;
-                case "&":
-                    type = "and";
-                    break;
-                case "!":
-                    type = "not";
-                    break;
-                case "(":
-                    type = "openpar";
-                    break;
-                case ")":
-                    type = "closepar";
-                    break;
-                case "{":
-                    type = "opencurlybr";
-                    break;
-                case "}":
-                    type = "closecurlybr";
-                    break;
-                case "[":
-                    type = "opensquarebr";
-                    break;
-                case "]":
-                    type = "closesquarebr";
-                    break;
-                case ";":
-                    type = "semicolon";
-                    break;
-                case ",":
-                    type = "comma";
-                    break;
+    public char nextChar() {
+        try {
+            if (backtrack_char != null) {
+                return backtrack_char;
             }
+            int lookup = bufferedReader.read();
+            return (char) lookup;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return '~';
         }
-
-        // checking for the reserved word if the type is ID
-        if (type.equals("id")) {
-            if (lexeme.equals("if") | lexeme.equals("then") | lexeme.equals("else") | lexeme.equals("integer")
-                    | lexeme.equals("float") | lexeme.equals("void") | lexeme.equals("public")
-                    | lexeme.equals("private") | lexeme.equals("func") | lexeme.equals("var") | lexeme.equals("struct")
-                    | lexeme.equals("while") | lexeme.equals("func") | lexeme.equals("read") | lexeme.equals("write") | lexeme.equals("return")
-                    | lexeme.equals("self") | lexeme.equals("inherits") | lexeme.equals("let") | lexeme.equals("impl")) {
-                type = lexeme;
-            }
-        }
-
-        // checking for block comments
-        if (type.equals("blockcmt") || type.equals("invalidcmt")) {
-            lexeme = lexeme.replaceAll("\r\n|\n", "\\\\n");
-            int num_line = 0;  // recording the number of lines in comments
-            int old_index = 0;
-            int new_index;
-            while ((new_index = lexeme.indexOf("\\n", old_index)) > -1) {
-                num_line++;
-                old_index = new_index + 2;
-            }
-            token_line = curr_line - num_line;
-        }
-
-        // creating a new token
-        curr_token = new Token(type, lexeme, token_line);
-        if (type.contains("invalid")) {
-            curr_token.setIs_error(true);
-        }
-        return curr_token;
     }
 
 }
