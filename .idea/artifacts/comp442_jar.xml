@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="comp442:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/comp442_jar</output-path>
-    <root id="archive" name="comp442.jar">
+    <root id="archive" name="lexdriver.jar">
       <element id="module-output" name="comp442" />
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
