@@ -7,6 +7,7 @@ public class LexicalDriver {
 //      lexnegativegrading.src lexpositivegrading.src commentstests.src numbertests.src stringidentifierstests.src
         final String path = "testcases/LexicalAnalyserTest/";
         File f = new File(path);
+        System.out.println("---------------------------Lexical Analyser---------------------------");
         if (f.isDirectory()) {
             File[] files = f.listFiles(((dir, name) -> name.endsWith(".src")));
             if (files != null) {
@@ -27,7 +28,7 @@ public class LexicalDriver {
      */
     static void TokenizeFile(String file_path) {
         LexicalAnalyser lexicalAnalyser = new LexicalAnalyser();
-        System.out.println("---------------------------Lexical Analyser---------------------------");
+        System.out.println("----------------------------------------------------------------------");
         lexicalAnalyser.createTransitionTable();
         lexicalAnalyser.writeToFiles(file_path);
         while (lexicalAnalyser.nextToken() != null) {

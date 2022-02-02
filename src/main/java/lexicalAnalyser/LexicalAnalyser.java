@@ -312,7 +312,6 @@ public class LexicalAnalyser {
                     curr_lexeme.append(lookup_char);
                 }
                 curr_token = createToken(curr_state);       // generate the token
-//                System.out.println(curr_token.toString());
                 writeToBuffers();
             } else {
                 backtrack_char = null;
@@ -330,7 +329,7 @@ public class LexicalAnalyser {
     }
 
     /**
-     * function to process the nexted comments
+     * function to process the nested comments
      * @param current state
      * @return the state after dealing with nested block comments case
      */
