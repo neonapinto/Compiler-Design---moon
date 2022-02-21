@@ -1,10 +1,11 @@
 package syntaxAnalyser;
-
 import java.io.File;
 
 public class SyntaxAnalyserDriver {
     public static void main(String[] args) {
-        final String path = "testcases/SyntacticAnalyserTest/syntacticCorrectFiles/";
+        //testcases/SyntacticAnalyserTest/errorFiles
+        //testcases/SyntacticAnalyserTest/syntacticCorrectFiles/no_main.src
+        final String path = "testcases/SyntacticAnalyserTest/syntacticCorrectFiles/test.src";
         File f = new File(path);
         System.out.println("---------------------------Syntax Analyser---------------------------");
         if (f.isDirectory()) {

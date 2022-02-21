@@ -1,27 +1,21 @@
 package syntaxAnalyser;
 
-
 import lexicalAnalyzer.Token;
 import lexicalAnalyzer.LexicalAnalyzer;
-
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.*;
 
 public class SyntacticAnalyser {
-
-    // import from other classes
     private LexicalAnalyzer lexical_analyzer;
-    //    private final NodeFactory nodeFactory;
     private final Grammar grammar;
-
-    //  parse stacks
+    //  parse stack
     private final Stack<String> parsing_stack;
     // variables
-    private Token lookahead_token;
+    private Token lookahead_token;          // token from the nexttoken() from lexical analyzer
     private Token terminal_suc_token;       // store the terminal token that has been parsed
-    private String lookahead;               // token read (represented by type)
+    private String lookahead;               // token type read (represented by type)
     private String derivation;              // record Derivation output
     private int index_terminal_derivation;  // keep updated index of the terminal symbol in derivation
     private String top_of_stack;
@@ -33,7 +27,6 @@ public class SyntacticAnalyser {
     public String parser_errors;
     private PrintWriter writer_string_err;
     private StringWriter string_err;
-
     private final HashSet<Integer> error_set = new HashSet<>();
 
     /**
@@ -50,17 +43,14 @@ public class SyntacticAnalyser {
         writer_string_err = new PrintWriter(string_err);
     }
 
-
     /**
      * lexical analyzer setup
-     *
      * @param src_file_path input file
      */
     public void parserLexicalSetup(String src_file_path) {
         lexical_analyzer.createTable();
         lexical_analyzer.IOFileSetup(src_file_path);
     }
-
 
     /**
      * input output files setup
@@ -96,8 +86,7 @@ public class SyntacticAnalyser {
     }
 
     /**
-     * parsing function
-     *
+     * parsing function to check for syntax errors
      * @return false when syntactic error exists
      */
     public boolean parse() {
@@ -107,21 +96,15 @@ public class SyntacticAnalyser {
         parsing_stack.push("START");
         derivation = "START";
         writer_derivation.append(derivation).append("\r\n");
-
         skipCommentsRead();
-
-
         while (!parsing_stack.peek().equals("$") && !end_of_file) {
             top_of_stack = parsing_stack.peek();
-
             // the top of parsing stack is a terminal symbol
             if (grammar.getTerminal_list().contains(top_of_stack)) {
                 terminal_suc_token = lookahead_token;
-
                 // when matching a terminal symbol
                 if (top_of_stack.equals(lookahead)) {
                     parsing_stack.pop();
-
                     // process derivation
                     if (index_terminal_derivation < derivation.length()) {
                         String temp_derivation = derivation;
@@ -132,16 +115,13 @@ public class SyntacticAnalyser {
                             writer_derivation.append("=> ").append(derivation).append("\r\n");
                         }
                     }
-
                     // read next valid token
                     skipCommentsRead();
-
                 } else {    // when match fails
                     skipErrors();
                     error = true;
                 }
             } else {
-
                 // when the top of parsing stack is a non terminal symbol
                 if (grammar.getNonTerminal_list().contains(top_of_stack)) {
                     // looking up parsing table
@@ -152,16 +132,13 @@ public class SyntacticAnalyser {
                         skipErrors();
                         error = true;
                     }
-                    // when the top of parsing stack is a semantic action
                 } else {
                     parsing_stack.pop();
 //                    }
                 }
             }
         }
-
         if (!lookahead.equals("$") && !error) {
-//            System.out.println("Syntax error at: " + lookahead_token.getLocation() + ";\t Unexpected: '" + lookahead + "'.");
             if (!error_set.contains(lookahead_token.getLocation())) {
                 writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append(";\t Unexpected: '").
                         append(lookahead).append("'\r\n");
@@ -170,7 +147,6 @@ public class SyntacticAnalyser {
                 error_set.add(lookahead_token.getLocation());
             }
         }
-
         return lookahead.equals("$") && !error;
     }
 
@@ -178,19 +154,17 @@ public class SyntacticAnalyser {
      * looking up result of the parsing table
      *
      * @param top_of_stack non terminal symbols on the top of stack
-     * @param lookahead    token
+     * @param lookahead  token
      * @return result in the parsing table
      */
     private String lookupParsingTable(String top_of_stack, String lookahead) {
-//        System.out.println(lookahead);
-        if (lookahead.equals("invalidchar") || lookahead.equals("invalidnum") || lookahead.equals("invalidid") || lookahead.equals("invalidcmt") || lookahead.equals("invalidstringlit")) {
+        if (lookahead.equals("invalidchar") || lookahead.equals("invalidnum") || lookahead.equals("invalidid") || lookahead.equals("invalidcmt")) {
             System.err.println("[Lexer] Lexical error(s) found!");
             lexical_analyzer.IOFileClose();
             System.exit(0);
         }
         return grammar.getParsing_table().get(top_of_stack).get(lookahead);
     }
-
 
     /**
      * inverse push into the parsing stack
@@ -199,7 +173,6 @@ public class SyntacticAnalyser {
      * @param rule grammar in the parsing table
      */
     private void inverseRHSMultiplePush(String LHS, String rule) {
-        System.out.println("rule: " + rule);
         String RHS_in_rule = grammar.getRules_attribute().get(rule).getRule_RHS().trim();
         if (!RHS_in_rule.equals("EPSILON")) {
             // generate derivation
@@ -208,9 +181,7 @@ public class SyntacticAnalyser {
                 RHS_to_replace = RHS_to_replace.replace("EPSILON", "");
             }
             derivation = derivation.replaceFirst(LHS.trim(), RHS_to_replace.trim());
-//            derivation = derivation.replaceAll(" sa-\\d\\d", "");
             writer_derivation.append("=> ").append(derivation).append("\r\n");
-
             // push into the stack
             String[] symbols = RHS_in_rule.split("\\s");
             if (symbols.length == 1) {
@@ -225,7 +196,6 @@ public class SyntacticAnalyser {
                 }
             }
         } else {
-
             // a EPSILON rule
             derivation = derivation.replaceFirst(LHS.trim(), "");
             derivation = derivation.replace("  ", " ");
@@ -242,25 +212,15 @@ public class SyntacticAnalyser {
     private void skipErrors() {
         Map<String, ArrayList<String>> first_sets = grammar.getFirst_sets();
         Map<String, ArrayList<String>> follow_sets = grammar.getFollow_sets();
-
         // get the original lexeme
         String expected = grammar.getSymbol_map().get(top_of_stack) == null ? top_of_stack : grammar.getSymbol_map().get(top_of_stack);
-
-//        if(lookahead_token==null){
-//            lookahead_token = terminal_suc_token;
-//        }
         // output error info
         if (lookahead_token != null) {
             String unexpected = grammar.getSymbol_map().get(lookahead) == null ? lookahead : grammar.getSymbol_map().get(lookahead);
-
-//            System.out.println("top of stack: " + top_of_stack);
-//            System.out.println("lookhahead: " + lookahead);
             // top of stack is a terminal symbol
             if (grammar.getTerminal_list().contains(top_of_stack)) {
                 parsing_stack.pop();
-
-//                System.out.println("top of stack is a terminal symbol.");
-//                System.out.println("Syntax error at: " + lookahead_token.getLocation());
+                System.out.println("Syntax error at: " + lookahead_token.getLocation());
                 if (!error_set.contains(lookahead_token.getLocation())) {
                     writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).
                             append("\t Missing expected symbol: '").append(expected).append("'\t Unexpected: '").append(unexpected).append("'\r\n");
@@ -269,12 +229,9 @@ public class SyntacticAnalyser {
                     error_set.add(lookahead_token.getLocation());
                 }
             } else {
-
                 //  pop the stack if the next token is in the FOLLOW set of our current non terminal on top of the stack
                 if (lookahead.equals("$") || follow_sets.get(top_of_stack).contains(lookahead)) {
-//                    System.out.println("pop the stack if the next token is in the FOLLOW set of our current non terminal on top of the stack");
-
-//                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
+                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
                     if (!error_set.contains(lookahead_token.getLocation())) {
                         writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append("\t Skip parsing : '").
                                 append(unexpected).append("'\t Expected: '").append(expected).append("'\r\n");
@@ -285,10 +242,8 @@ public class SyntacticAnalyser {
                     }
 
                 } else {
-//                    System.out.println("scan tokens until we get one with which we can resume the parse" + lookahead_token.getLocation());
-
                     // scan tokens until we get one with which we can resume the parse
-//                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
+                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
                     if (!error_set.contains(lookahead_token.getLocation())) {
                         writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append("\t Unexpected: '").
                                 append(unexpected).append("'\t Expected: '").append(expected).append("'\r\n");
@@ -298,17 +253,9 @@ public class SyntacticAnalyser {
                     }else{
                         skipCommentsRead();
                     }
-//                    System.out.println("[scan while]lookahead: " + lookahead);
-//                    System.out.println("[scan while] first sets:  "+first_sets.get(top_of_stack));
-//                        System.out.println("[scan while] follow sets:  "+follow_sets.get(top_of_stack));
-//                        System.out.println("[scan while] top of stack: "+ top_of_stack);
                     while (!first_sets.get(top_of_stack).contains(lookahead) &&
                             ((first_sets.get(top_of_stack).contains("EPSILON") && !follow_sets.get(top_of_stack).contains(lookahead)))) {
-
                         skipCommentsRead();
-
-//
-
                         if (lookahead.equals("$")) {
                             break;
                         }
@@ -316,7 +263,6 @@ public class SyntacticAnalyser {
                 }
             }
         } else {
-//            System.out.println("Syntax error at the end of the file. \tUnexpected: " + lookahead);
             System.out.println("The program has syntax error(s).");
             writer_err_report.append("[Syntax error] at the end of the file.").append("\t Unexpected: '").
                     append(lookahead).append("'\r\n");
@@ -324,18 +270,15 @@ public class SyntacticAnalyser {
                     append(lookahead).append("'\r\n");
             writer_err_report.flush();
             writer_err_report.close();
-//            parser_errors += string_err.toString();
             end_of_file = true;
-//            System.exit(0);
         }
     }
 
 
     /**
-     * ignore comments token
+     * ignore comments token and look for the nexttoken
      */
     private void skipCommentsRead() {
-        // token type read
         String lookahead_type;
         do {
             lookahead_token = lexical_analyzer.nextToken();
@@ -348,7 +291,6 @@ public class SyntacticAnalyser {
             }
         } while (lookahead_type.equals("blockcmt") || lookahead_type.equals("inlinecmt"));
         lookahead = toTerminalSymbols(lookahead_type);
-//        System.out.println("[skipcomments Read] " + lookahead);
     }
 
 
@@ -380,22 +322,4 @@ public class SyntacticAnalyser {
                 return lookahead_type;
         }
     }
-
-
-    // for test example
-    private String toTerminalSymbolsEx(String lookahead_type) {
-        switch (lookahead_type) {
-
-            case "intnum":
-                return "1";
-            case "openpar":
-                return "(";
-            case "closepar":
-                return ")";
-            default:
-                return lookahead_type;
-        }
-    }
-
-
 }
