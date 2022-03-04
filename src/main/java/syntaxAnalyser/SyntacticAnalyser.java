@@ -134,7 +134,7 @@ public class SyntacticAnalyser {
                     }
                 } else {
                     parsing_stack.pop();
-//                    }
+//                 }
                 }
             }
         }
@@ -220,7 +220,6 @@ public class SyntacticAnalyser {
             // top of stack is a terminal symbol
             if (grammar.getTerminal_list().contains(top_of_stack)) {
                 parsing_stack.pop();
-                System.out.println("Syntax error at: " + lookahead_token.getLocation());
                 if (!error_set.contains(lookahead_token.getLocation())) {
                     writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).
                             append("\t Missing expected symbol: '").append(expected).append("'\t Unexpected: '").append(unexpected).append("'\r\n");
@@ -231,7 +230,6 @@ public class SyntacticAnalyser {
             } else {
                 //  pop the stack if the next token is in the FOLLOW set of our current non terminal on top of the stack
                 if (lookahead.equals("$") || follow_sets.get(top_of_stack).contains(lookahead)) {
-                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
                     if (!error_set.contains(lookahead_token.getLocation())) {
                         writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append("\t Skip parsing : '").
                                 append(unexpected).append("'\t Expected: '").append(expected).append("'\r\n");
@@ -243,7 +241,6 @@ public class SyntacticAnalyser {
 
                 } else {
                     // scan tokens until we get one with which we can resume the parse
-                    System.out.println("Syntax error at: " + lookahead_token.getLocation());
                     if (!error_set.contains(lookahead_token.getLocation())) {
                         writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append("\t Unexpected: '").
                                 append(unexpected).append("'\t Expected: '").append(expected).append("'\r\n");

@@ -5,7 +5,7 @@ public class SyntaxAnalyserDriver {
     public static void main(String[] args) {
         //testcases/SyntacticAnalyserTest/errorFiles
         //testcases/SyntacticAnalyserTest/syntacticCorrectFiles/no_main.src
-        final String path = "testcases/SyntacticAnalyserTest/syntacticCorrectFiles/test.src";
+        final String path = "testcases/SyntacticAnalyserTest/syntacticCorrectFiles/";
         File f = new File(path);
         System.out.println("---------------------------Syntax Analyser---------------------------");
         if (f.isDirectory()) {

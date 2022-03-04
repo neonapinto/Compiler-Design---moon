@@ -7,7 +7,7 @@ struct POLYNOMIAL1 {
 	private let b: float;          //no member function declaration
 };
 
-struct LINEAR inherits POLYNOMIAL {
+struct LINEAR inherits POLYNOMIAL { //inherits one class
 	private let a: float;
 	private let b: float;
 	public  func build(A: float, B: float) -> LINEAR;

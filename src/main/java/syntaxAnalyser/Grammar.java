@@ -332,7 +332,6 @@ public class Grammar {
         parsing_table.put("VARIABLETAIL", table_entry_table);
         table_entry_table = Stream.of(new String[][]{{"$", "error"}, {"private", "VISIBILITY_private"}, {"public", "VISIBILITY_public"}, {"id", "error"}, {"dot", "error"}, {"semi", "error"}, {"colon", "error"}, {"let", "error"}, {"float", "error"}, {"integer", "error"}, {"rcurbr", "error"}, {"lcurbr", "error"}, {"struct", "error"}, {"rpar", "error"}, {"lpar", "error"}, {"return", "error"}, {"write", "error"}, {"read", "error"}, {"while", "error"}, {"else", "error"}, {"then", "error"}, {"if", "error"}, {"minus", "error"}, {"plus", "error"}, {"void", "error"}, {"comma", "error"}, {"geq", "error"}, {"leq", "error"}, {"gt", "error"}, {"lt", "error"}, {"neq", "error"}, {"eq", "error"}, {"inherits", "error"}, {"and", "error"}, {"div", "error"}, {"mult", "error"}, {"rsqbr", "error"}, {"lsqbr", "error"}, {"impl", "error"}, {"arrow", "error"}, {"func", "error"}, {"not", "error"}, {"floatnum", "error"}, {"intnum", "error"}, {"assign", "error"},  {"or", "error"}}).collect(Collectors.toMap(data -> data[0], data -> data[1]));
         parsing_table.put("VISIBILITY", table_entry_table);
-
     }
 
     /**
