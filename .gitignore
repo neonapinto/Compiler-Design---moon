@@ -28,3 +28,4 @@ hs_err_pid*
 # ignore doc/notes.txt, but not doc/server/arch.txt
 testcases/LexicalAnalyserTest/*.outlexerrors
 testcases/LexicalAnalyserTest/*.outlextokens
+testcases/SyntacticAnalyserTest/syntacticCorrectFiles/*.src
