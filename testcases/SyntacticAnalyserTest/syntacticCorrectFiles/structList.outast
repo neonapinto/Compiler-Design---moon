@@ -1,0 +1,67 @@
+============================================================================================================================
+Node type                                                                   | data                | line      | subtreestring
+============================================================================================================================
+AST.ProgNode                                                                |                     |                       
+  AST.StructDeclNode                                                        |                     |                       
+    AST.IdNode                                                              | POLYNOMIAL0         | 1                     
+    AST.InheritListNode                                                     |                     |                       
+    AST.MembListNode                                                        |                     |                       
+  AST.StructDeclNode                                                        |                     |                       
+    AST.IdNode                                                              | POLYNOMIAL1         | 4                     
+    AST.InheritListNode                                                     |                     |                       
+    AST.MembListNode                                                        |                     |                       
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | private             | 5                     
+        AST.VarDeclNode                                                     |                     |                       
+          AST.IdNode                                                        | a                   | 5                     
+          AST.TypeNode                                                      | float               | 5                     
+          AST.DimListNode                                                   |                     |                       
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | private             | 6                     
+        AST.VarDeclNode                                                     |                     |                       
+          AST.IdNode                                                        | b                   | 6                     
+          AST.TypeNode                                                      | float               | 6                     
+          AST.DimListNode                                                   |                     |                       
+  AST.StructDeclNode                                                        |                     |                       
+    AST.IdNode                                                              | LINEAR              | 9                     
+    AST.InheritListNode                                                     |                     |                       
+      AST.IdNode                                                            | POLYNOMIAL          | 9                     
+    AST.MembListNode                                                        |                     |                       
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | private             | 10                    
+        AST.VarDeclNode                                                     |                     |                       
+          AST.IdNode                                                        | a                   | 10                    
+          AST.TypeNode                                                      | float               | 10                    
+          AST.DimListNode                                                   |                     |                       
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | private             | 11                    
+        AST.VarDeclNode                                                     |                     |                       
+          AST.IdNode                                                        | b                   | 11                    
+          AST.TypeNode                                                      | float               | 11                    
+          AST.DimListNode                                                   |                     |                       
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | public              | 12                    
+        AST.FuncDeclNode                                                    |                     |                       
+          AST.IdNode                                                        | build               | 12                    
+          AST.FParamListNode                                                |                     |                       
+            AST.FParamNode                                                  |                     |                       
+              AST.IdNode                                                    | A                   | 12                    
+              AST.TypeNode                                                  | float               | 12                    
+              AST.DimListNode                                               |                     |                       
+            AST.FParamNode                                                  |                     |                       
+              AST.IdNode                                                    | B                   | 12                    
+              AST.TypeNode                                                  | float               | 12                    
+              AST.DimListNode                                               |                     |                       
+          AST.TypeNode                                                      |                     |                       
+            AST.IdNode                                                      | LINEAR              | 12                    
+      AST.MembDeclNode                                                      |                     |                       
+        AST.VisibilityNode                                                  | public              | 13                    
+        AST.FuncDeclNode                                                    |                     |                       
+          AST.IdNode                                                        | evaluate            | 13                    
+          AST.FParamListNode                                                |                     |                       
+            AST.FParamNode                                                  |                     |                       
+              AST.IdNode                                                    | x                   | 13                    
+              AST.TypeNode                                                  | float               | 13                    
+              AST.DimListNode                                               |                     |                       
+          AST.TypeNode                                                      | float               | 13                    
+============================================================================================================================

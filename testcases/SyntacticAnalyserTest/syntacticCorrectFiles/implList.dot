@@ -1,0 +1,270 @@
+digraph AST {
+node [shape=record];
+node [fontname=Sans];charset="UTF-8" splines=true splines=spline rankdir =LR
+761 -> 585 -> 567;
+567[label="Id | POLYNOMIAL | 1"]
+585 -> 584 -> 583 -> 568;
+568[label="Id | evaluate | 2"]
+583 -> 573 -> 572 -> 569;
+569[label="Id | x | 2"]
+572 -> 570;
+570[label="Type | float | 2"]
+572 -> 571;
+571[label="DimList"]
+572[label="FParam"];
+573[label="FParamList"];
+583 -> 574;
+574[label="Type | float | 2"]
+583 -> 582 -> 581 -> 580 -> 579 -> 578 -> 577 -> 576 -> 575;
+575[label="Num | 0 | 4"]
+576[label="Factor"];
+577[label="Term"];
+578[label="ArithExpr"];
+579[label="Expr"];
+580[label="ReturnStat"];
+581[label="StatBlock"];
+582[label="FuncBody"];
+583[label="FuncDef"];
+584[label="FuncDefList"];
+585[label="ImplDef"];
+761 -> 611 -> 586;
+586[label="Id | QUADRATIC | 7"]
+611 -> 610 -> 609 -> 587;
+587[label="Id | evaluate | 8"]
+609 -> 592 -> 591 -> 588;
+588[label="Id | x | 8"]
+591 -> 589;
+589[label="Type | float | 8"]
+591 -> 590;
+590[label="DimList"]
+591[label="FParam"];
+592[label="FParamList"];
+609 -> 593;
+593[label="Type | float | 8"]
+609 -> 608 -> 607 -> 597 -> 594;
+594[label="Id | result | 10"]
+597 -> 595;
+595[label="Type | float | 10"]
+597 -> 596;
+596[label="DimList"]
+597[label="VarDecl"];
+607 -> 606 -> 605 -> 604 -> 603 -> 602 -> 601 -> 600 -> 598;
+598[label="Id | result | 11"]
+600 -> 599;
+599[label="Indice"]
+600[label="DataMem"];
+601[label="FuncOrVar"];
+602[label="Factor"];
+603[label="Term"];
+604[label="ArithExpr"];
+605[label="Expr"];
+606[label="ReturnStat"];
+607[label="StatBlock"];
+608[label="FuncBody"];
+609[label="FuncDef"];
+610[label="FuncDefList"];
+611[label="ImplDef"];
+761 -> 760 -> 612;
+612[label="Id | LINEAR | 15"]
+760 -> 759 -> 660 -> 613;
+613[label="Id | build | 16"]
+660 -> 624 -> 618 -> 614;
+614[label="Id | A | 16"]
+618 -> 615;
+615[label="Type | float | 16"]
+618 -> 617 -> 616;
+616[label="Dim | [10]"]
+617[label="DimList"];
+618[label="FParam"];
+624 -> 623 -> 619;
+619[label="Id | B | 16"]
+623 -> 620;
+620[label="Type | float | 16"]
+623 -> 622 -> 621;
+621[label="Dim | [200]"]
+622[label="DimList"];
+623[label="FParam"];
+624[label="FParamList"];
+660 -> 626 -> 625;
+625[label="Id | LINEAR | 16"]
+626[label="Type"];
+660 -> 659 -> 658 -> 631 -> 627;
+627[label="Id | new_function | 18"]
+631 -> 629 -> 628;
+628[label="Id | LINEAR | 18"]
+629[label="Type"];
+631 -> 630;
+630[label="DimList"]
+631[label="VarDecl"];
+658 -> 648 -> 639 -> 638 -> 634 -> 632;
+632[label="Id | new_function | 19"]
+634 -> 633;
+633[label="Indice"]
+634[label="DataMem"];
+638 -> 637 -> 635;
+635[label="Id | b | 19"]
+637 -> 636;
+636[label="Indice"]
+637[label="DataMem"];
+638[label="Dot"];
+639[label="Variable"];
+648 -> 647 -> 646 -> 645 -> 644 -> 643 -> 642 -> 640;
+640[label="Id | B | 19"]
+642 -> 641;
+641[label="Indice"]
+642[label="DataMem"];
+643[label="FuncOrVar"];
+644[label="Factor"];
+645[label="Term"];
+646[label="ArithExpr"];
+647[label="Expr"];
+648[label="AssignStat | ="];
+658 -> 657 -> 656 -> 655 -> 654 -> 653 -> 652 -> 651 -> 649;
+649[label="Id | new_function | 20"]
+651 -> 650;
+650[label="Indice"]
+651[label="DataMem"];
+652[label="FuncOrVar"];
+653[label="Factor"];
+654[label="Term"];
+655[label="ArithExpr"];
+656[label="Expr"];
+657[label="ReturnStat"];
+658[label="StatBlock"];
+659[label="FuncBody"];
+660[label="FuncDef"];
+759 -> 711 -> 661;
+661[label="Id | evaluate | 22"]
+711 -> 666 -> 665 -> 662;
+662[label="Id | x | 22"]
+665 -> 663;
+663[label="Type | float | 22"]
+665 -> 664;
+664[label="DimList"]
+665[label="FParam"];
+666[label="FParamList"];
+711 -> 667;
+667[label="Type | float | 22"]
+711 -> 710 -> 709 -> 671 -> 668;
+668[label="Id | result | 24"]
+671 -> 669;
+669[label="Type | float | 24"]
+671 -> 670;
+670[label="DimList"]
+671[label="VarDecl"];
+709 -> 699 -> 675 -> 674 -> 672;
+672[label="Id | result | 25"]
+674 -> 673;
+673[label="Indice"]
+674[label="DataMem"];
+675[label="Variable"];
+699 -> 698 -> 697 -> 690 -> 689 -> 688 -> 682 -> 681 -> 680 -> 679 -> 678 -> 676;
+676[label="Id | a | 25"]
+678 -> 677;
+677[label="Indice"]
+678[label="DataMem"];
+679[label="FuncOrVar"];
+680[label="Factor"];
+681[label="Term"];
+682 -> 687 -> 686 -> 685 -> 683;
+683[label="Id | x | 25"]
+685 -> 684;
+684[label="Indice"]
+685[label="DataMem"];
+686[label="FuncOrVar"];
+687[label="Factor"];
+682[label="MultOp | * | 25"];
+688[label="Term"];
+689[label="ArithExpr"];
+690 -> 696 -> 695 -> 694 -> 693 -> 691;
+691[label="Id | b | 25"]
+693 -> 692;
+692[label="Indice"]
+693[label="DataMem"];
+694[label="FuncOrVar"];
+695[label="Factor"];
+696[label="Term"];
+690[label="AddOp | + | 25"];
+697[label="ArithExpr"];
+698[label="Expr"];
+699[label="AssignStat | ="];
+709 -> 708 -> 707 -> 706 -> 705 -> 704 -> 703 -> 702 -> 700;
+700[label="Id | result | 26"]
+702 -> 701;
+701[label="Indice"]
+702[label="DataMem"];
+703[label="FuncOrVar"];
+704[label="Factor"];
+705[label="Term"];
+706[label="ArithExpr"];
+707[label="Expr"];
+708[label="ReturnStat"];
+709[label="StatBlock"];
+710[label="FuncBody"];
+711[label="FuncDef"];
+759 -> 758 -> 712;
+712[label="Id | sum | 28"]
+758 -> 717 -> 716 -> 713;
+713[label="Id | x | 28"]
+716 -> 714;
+714[label="Type | float | 28"]
+716 -> 715;
+715[label="DimList"]
+716[label="FParam"];
+717[label="FParamList"];
+758 -> 718;
+718[label="Type | float | 28"]
+758 -> 757 -> 756 -> 746 -> 722 -> 721 -> 719;
+719[label="Id | result | 30"]
+721 -> 720;
+720[label="Indice"]
+721[label="DataMem"];
+722[label="Variable"];
+746 -> 745 -> 744 -> 737 -> 736 -> 735 -> 729 -> 728 -> 727 -> 726 -> 725 -> 723;
+723[label="Id | a | 30"]
+725 -> 724;
+724[label="Indice"]
+725[label="DataMem"];
+726[label="FuncOrVar"];
+727[label="Factor"];
+728[label="Term"];
+729 -> 734 -> 733 -> 732 -> 730;
+730[label="Id | x | 30"]
+732 -> 731;
+731[label="Indice"]
+732[label="DataMem"];
+733[label="FuncOrVar"];
+734[label="Factor"];
+729[label="MultOp | * | 30"];
+735[label="Term"];
+736[label="ArithExpr"];
+737 -> 743 -> 742 -> 741 -> 740 -> 738;
+738[label="Id | b | 30"]
+740 -> 739;
+739[label="Indice"]
+740[label="DataMem"];
+741[label="FuncOrVar"];
+742[label="Factor"];
+743[label="Term"];
+737[label="AddOp | + | 30"];
+744[label="ArithExpr"];
+745[label="Expr"];
+746[label="AssignStat | ="];
+756 -> 755 -> 754 -> 753 -> 752 -> 751 -> 750 -> 749 -> 747;
+747[label="Id | result | 31"]
+749 -> 748;
+748[label="Indice"]
+749[label="DataMem"];
+750[label="FuncOrVar"];
+751[label="Factor"];
+752[label="Term"];
+753[label="ArithExpr"];
+754[label="Expr"];
+755[label="ReturnStat"];
+756[label="StatBlock"];
+757[label="FuncBody"];
+758[label="FuncDef"];
+759[label="FuncDefList"];
+760[label="ImplDef"];
+761[label="Prog"];
+}

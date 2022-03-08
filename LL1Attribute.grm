@@ -136,8 +136,8 @@ STATBLOCK -> STATEMENT  .
 STATBLOCK ->  .
 
 STATEMENT -> id STATEMENT1 semi  .
-STATEMENT -> if lpar RELEXPR rpar then STATBLOCK else STATBLOCK semi  .
-STATEMENT -> while lpar RELEXPR rpar STATBLOCK semi  .
+STATEMENT -> if lpar EXPR rpar then STATBLOCK else STATBLOCK semi  .
+STATEMENT -> while lpar EXPR rpar STATBLOCK semi  .
 STATEMENT -> read lpar VARIABLE rpar semi  .
 STATEMENT -> write lpar EXPR rpar semi  .
 STATEMENT -> return lpar EXPR rpar semi  .

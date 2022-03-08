@@ -1,0 +1,25 @@
+struct POLYNOMIAL {
+	func evaluate(x: float) -> float; // no visibility
+};
+
+impl POLYNOMIAL -> void { //defintion is incorrect
+  func evaluate(x: float) -> float
+  {
+    return (0);
+  }
+}
+
+func evaluate(result : float) -> float
+{
+  result = a;
+  result = result * x + b  //no semicolon
+  result = result * x + c;
+  return (result[]);                                    // return type: array (not allowed)
+}
+
+/*
+    functions: definitions
+    --------------------------------------
+|X| return type: array (not allowed)
+
+*/
