@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class MultOpNode extends Node {
 
     public MultOpNode(String p_data, int line) {
@@ -17,5 +19,7 @@ public class MultOpNode extends Node {
         this.addChild(p_rightChild);
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

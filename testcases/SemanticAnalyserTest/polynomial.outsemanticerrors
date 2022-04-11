@@ -1,0 +1,5 @@
+[9.3][semantic warning][line:10] Overridden inherited member function: 	'evaluate' in the struct class LINEAR
+[9.3][semantic warning][line:18] Overridden inherited member function: 	'evaluate' in the struct class QUADRATIC
+[12.2][semantic error][line:82] Function call with wrong type of parameters:  'f1.evaluate(counter)'
+[12.2][semantic error][line:83] Function call with wrong type of parameters:  'f2.evaluate(counter)'
+

@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class VarDeclNode extends Node {
 
     public VarDeclNode() {
@@ -23,6 +25,10 @@ public class VarDeclNode extends Node {
         this.addChild(p_type);
         this.addChild(p_id);
         this.addChild(new DimListNode());
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
 }

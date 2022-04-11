@@ -1,6 +1,6 @@
 package AST;
 
-
+import visitors.Visitor;
 
 public class MembListNode extends Node {
     public MembListNode() {
@@ -13,5 +13,7 @@ public class MembListNode extends Node {
 
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

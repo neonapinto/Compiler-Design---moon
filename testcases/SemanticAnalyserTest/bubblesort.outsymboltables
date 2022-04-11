@@ -1,0 +1,87 @@
+
+=====================================================================================
+| table: global                scope offset: 0                                      |
+=====================================================================================
+| function  | bubbleSort    | (integer[], integer):void                       |
+|    =====================================================================================
+|    | table: bubbleSort            scope offset: -140                                   |
+|    =====================================================================================
+|    | param     | arr           | integer[]                             | 4     | -12   |
+|    | param     | size          | integer                               | 4     | -16   |
+|    | local     | n             | integer                               | 4     | -20   |
+|    | local     | i             | integer                               | 4     | -24   |
+|    | local     | j             | integer                               | 4     | -28   |
+|    | local     | temp          | integer                               | 4     | -32   |
+|    | litval_0  | t1            | integer                               | 4     | -36   |
+|    | litval_0  | t2            | integer                               | 4     | -40   |
+|    | litval_0  | t3            | integer                               | 4     | -44   |
+|    | litval_1  | t4            | integer                               | 4     | -48   |
+|    | tempvar   | t5            | integer                               | 4     | -52   |
+|    | tempvar   | t6            | integer                               | 4     | -56   |
+|    | tempvar   | t7            | integer                               | 4     | -60   |
+|    | litval_1  | t8            | integer                               | 4     | -64   |
+|    | tempvar   | t9            | integer                               | 4     | -68   |
+|    | tempvar   | t10           | integer                               | 4     | -72   |
+|    | tempvar   | t11           | integer                               | 4     | -76   |
+|    | litval_1  | t12           | integer                               | 4     | -80   |
+|    | tempvar   | t13           | integer                               | 4     | -84   |
+|    | tempvar   | t14           | integer                               | 4     | -88   |
+|    | tempvar   | t15           | integer                               | 4     | -92   |
+|    | tempvar   | t16           | integer                               | 4     | -96   |
+|    | tempvar   | t17           | integer                               | 4     | -100  |
+|    | litval_1  | t18           | integer                               | 4     | -104  |
+|    | tempvar   | t19           | integer                               | 4     | -108  |
+|    | tempvar   | t20           | integer                               | 4     | -112  |
+|    | litval_1  | t21           | integer                               | 4     | -116  |
+|    | tempvar   | t22           | integer                               | 4     | -120  |
+|    | tempvar   | t23           | integer                               | 4     | -124  |
+|    | litval_1  | t24           | integer                               | 4     | -128  |
+|    | tempvar   | t25           | integer                               | 4     | -132  |
+|    | litval_1  | t26           | integer                               | 4     | -136  |
+|    | tempvar   | t27           | integer                               | 4     | -140  |
+|    =====================================================================================
+| function  | printArray    | (integer[], integer):void                       |
+|    =====================================================================================
+|    | table: printArray            scope offset: -44                                    |
+|    =====================================================================================
+|    | param     | arr           | integer[]                             | 4     | -12   |
+|    | param     | size          | integer                               | 4     | -16   |
+|    | local     | n             | integer                               | 4     | -20   |
+|    | local     | i             | integer                               | 4     | -24   |
+|    | litval_0  | t28           | integer                               | 4     | -28   |
+|    | tempvar   | t29           | integer                               | 4     | -32   |
+|    | tempvar   | t30           | integer                               | 4     | -36   |
+|    | litval_1  | t31           | integer                               | 4     | -40   |
+|    | tempvar   | t32           | integer                               | 4     | -44   |
+|    =====================================================================================
+| function  | main          | ():void                                         |
+|    =====================================================================================
+|    | table: main                  scope offset: -132                                   |
+|    =====================================================================================
+|    | local     | arr           | integer[7]                            | 28    | -36   |
+|    | litval_0  | t33           | integer                               | 4     | -40   |
+|    | tempvar   | t34           | integer                               | 4     | -44   |
+|    | litval_64 | t35           | integer                               | 4     | -48   |
+|    | litval_1  | t36           | integer                               | 4     | -52   |
+|    | tempvar   | t37           | integer                               | 4     | -56   |
+|    | litval_34 | t38           | integer                               | 4     | -60   |
+|    | litval_2  | t39           | integer                               | 4     | -64   |
+|    | tempvar   | t40           | integer                               | 4     | -68   |
+|    | litval_25 | t41           | integer                               | 4     | -72   |
+|    | litval_3  | t42           | integer                               | 4     | -76   |
+|    | tempvar   | t43           | integer                               | 4     | -80   |
+|    | litval_12 | t44           | integer                               | 4     | -84   |
+|    | litval_4  | t45           | integer                               | 4     | -88   |
+|    | tempvar   | t46           | integer                               | 4     | -92   |
+|    | litval_22 | t47           | integer                               | 4     | -96   |
+|    | litval_5  | t48           | integer                               | 4     | -100  |
+|    | tempvar   | t49           | integer                               | 4     | -104  |
+|    | litval_11 | t50           | integer                               | 4     | -108  |
+|    | litval_6  | t51           | integer                               | 4     | -112  |
+|    | tempvar   | t52           | integer                               | 4     | -116  |
+|    | litval_90 | t53           | integer                               | 4     | -120  |
+|    | litval_7  | t54           | integer                               | 4     | -124  |
+|    | litval_7  | t55           | integer                               | 4     | -128  |
+|    | litval_7  | t56           | integer                               | 4     | -132  |
+|    =====================================================================================
+=====================================================================================

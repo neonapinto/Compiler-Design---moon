@@ -1,5 +1,8 @@
 package AST;
 
+
+import visitors.Visitor;
+
 public class FuncCallNode extends Node {
 
     public FuncCallNode() {
@@ -16,4 +19,7 @@ public class FuncCallNode extends Node {
         this.addChild(p_paramList);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

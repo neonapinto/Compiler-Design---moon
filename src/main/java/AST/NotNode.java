@@ -1,5 +1,6 @@
 package AST;
 
+import visitors.Visitor;
 
 public class NotNode extends Node {
     public NotNode() {
@@ -10,4 +11,7 @@ public class NotNode extends Node {
         super("", p_parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

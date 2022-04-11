@@ -24,6 +24,7 @@ public class SyntacticAnalyser {
     private int index_terminal_derivation;  // keep updated index of the terminal symbol in derivation
     private String top_of_stack;
     private boolean end_of_file;
+    private Node progNode;
     // output to files
     private PrintWriter writer_derivation;
     private PrintWriter writer_err_report;
@@ -43,7 +44,7 @@ public class SyntacticAnalyser {
         semantic_stack = new Stack<>();
         nodeFactory = new NodeFactory();
         grammar = new Grammar();
-        grammar.generateGrammarProject();
+        grammar.createGrammarActions();
         end_of_file = false;
         parser_errors = "";
         string_err = new StringWriter();
@@ -55,8 +56,8 @@ public class SyntacticAnalyser {
      * @param src_file_path input file
      */
     public void parserLexicalSetup(String src_file_path) {
-        lexical_analyzer.createTable();
-        lexical_analyzer.IOFileSetup(src_file_path);
+        lexical_analyzer.createTransitionTable();
+        lexical_analyzer.fileSetup(src_file_path);
     }
 
     /**
@@ -64,17 +65,17 @@ public class SyntacticAnalyser {
      *
      * @param src_file_path input file
      */
-    public void parserIOFileSetup(String src_file_path) {
+    public void parserFileSetup(String src_file_path) {
         try {
             String file_path_temp = src_file_path.substring(0, src_file_path.length() - 4);
             File outfile_derivation = new File(file_path_temp + ".outderivation");
             File outfile_error = new File(file_path_temp + ".outsyntaxerrors");
             File outfile_DOT = new File(file_path_temp + ".dot");
             File outfile_AST = new File(file_path_temp + ".outast");
-            System.out.println("[Parser] Writing to the file: " + outfile_derivation.getName());
-            System.out.println("[Parser] Writing to the file: " + outfile_error.getName());
-            System.out.println("[Parser] Writing to the file: " + outfile_DOT.getName());
-            System.out.println("[Parser] Writing to the file: " + outfile_AST.getName());
+            System.out.println("Writing to the file: " + outfile_derivation.getName());
+            System.out.println("Writing to the file: " + outfile_error.getName());
+            System.out.println("Writing to the file: " + outfile_DOT.getName());
+            System.out.println("Writing to the file: " + outfile_AST.getName());
             writer_derivation = new PrintWriter(outfile_derivation);
             writer_err_report = new PrintWriter(outfile_error);
             writer_DOT = new PrintWriter(outfile_DOT);
@@ -88,9 +89,9 @@ public class SyntacticAnalyser {
     /**
      * close files
      */
-    public void parserIOFileClose() {
+    public void parserFileClose() {
         System.out.println("[Parser] Flushing & closing files. ");
-        lexical_analyzer.IOFileClose();
+        lexical_analyzer.closeFiles();
         writer_derivation.flush();
         writer_derivation.close();
         writer_err_report.flush();
@@ -107,7 +108,7 @@ public class SyntacticAnalyser {
      * @return false when syntactic error exists
      */
     public boolean parse() {
-        System.out.println("[Parser] Starting parsing...");
+        System.out.println("Starting parsing...");
         boolean error = false;
         parsing_stack.push("$");
         parsing_stack.push("START");
@@ -150,16 +151,12 @@ public class SyntacticAnalyser {
                         error = true;
                     }
                 } else {
-//                    System.out.println(top_of_stack);
                     if (grammar.getSemantic_actions_list().contains(top_of_stack)) {
                         semanticActionOnStack();
                     }
                 }
             }
         }
-
-//        String values = Arrays.toString(semantic_stack.toArray());
-//        System.out.println(values);
 
         PrintStream console = System.out;
         System.setOut(writer_AST);
@@ -170,6 +167,7 @@ public class SyntacticAnalyser {
         System.setOut(console);
         if (!semantic_stack.isEmpty()) {
             printToDot(semantic_stack.peek());
+            progNode = semantic_stack.peek();
         }
         if (!lookahead.equals("$") && !error) {
             if (!error_set.contains(lookahead_token.getLocation())) {
@@ -183,6 +181,10 @@ public class SyntacticAnalyser {
         return lookahead.equals("$") && !error;
     }
 
+    public Node getProgNode() {
+        return progNode;
+    }
+
     /**
      * looking up result of the parsing table
      *
@@ -192,8 +194,8 @@ public class SyntacticAnalyser {
      */
     private String lookupParsingTable(String top_of_stack, String lookahead) {
         if (lookahead.equals("invalidchar") || lookahead.equals("invalidnum") || lookahead.equals("invalidid") || lookahead.equals("invalidcmt")) {
-            System.err.println("[Lexer] Lexical error(s) found!");
-            lexical_analyzer.IOFileClose();
+            System.err.println("Lexical error(s) found!");
+            lexical_analyzer.closeFiles();
             System.exit(0);
         }
         return grammar.getParsing_table().get(top_of_stack).get(lookahead);
@@ -214,7 +216,7 @@ public class SyntacticAnalyser {
                 RHS_to_replace = RHS_to_replace.replace("EPSILON", "");
             }
             derivation = derivation.replaceFirst(LHS.trim(), RHS_to_replace.trim());
-            derivation = derivation.replaceAll(" sa-\\d\\d", "");
+            derivation = derivation.replaceAll(" semaction-\\d\\d", "");
             writer_derivation.append("=> ").append(derivation).append("\r\n");
             // push into the stack
             String[] symbols = RHS_in_rule.split("\\s");
@@ -417,7 +419,6 @@ public class SyntacticAnalyser {
         parsing_stack.pop();
         String left_sem_act = semantic_action.getSem_act_LHS();
         String right_sem_act = semantic_action.getSem_act_RHS();
-//        System.out.println("[semantic stack] action begin: " + semantic_action.toString());
         Node node_to_push;
         Node node_on_top = null;
         if (!semantic_stack.empty()) {
@@ -428,7 +429,6 @@ public class SyntacticAnalyser {
             String type = right_sem_act.substring(right_sem_act.indexOf("(") + 1, right_sem_act.indexOf(")"));
             String node_lexeme = terminal_suc_token.getLexeme();
             int node_line = terminal_suc_token.getLocation();
-//            System.out.println("[makeNode branch] token going to be made as a leaf: " + terminal_suc_token.toString() + " " + type);
             node_to_push = nodeFactory.makeNode(type, node_lexeme, node_line);
             assert node_to_push != null;
             node_to_push.setName(left_sem_act);
@@ -436,7 +436,6 @@ public class SyntacticAnalyser {
         } else {
             // generate AST subtree
             if (right_sem_act.contains("makeFamily(")) {
-//                System.out.println("[make family branch] begin: " + right_sem_act);
                 String parameter = right_sem_act.substring(right_sem_act.indexOf("makeFamily(") + 11, right_sem_act.indexOf(")"));
                 String[] parameters = parameter.split(",");
                 String op = parameters[0];
@@ -510,7 +509,6 @@ public class SyntacticAnalyser {
                                 para_nodes.add(node_to_pop);
                             }
                         }
-
                         if (!semantic_stack.isEmpty()) {
                             node_on_top = semantic_stack.peek();
                             if (parameters[1].trim().equals(node_on_top.m_sa_name)) {
@@ -520,13 +518,11 @@ public class SyntacticAnalyser {
                                 skip = true;
                             }
                         }
-                       // System.out.println("[keepOrskip] para_nodes size : " + para_nodes.size());
                     } else {
                         // any one of kids can make a family (one type is enough)
                         if (parameters[parameters.length - 1].trim().equals("any")) {
                             // only the first 2 kids can be interchangeable. Special case for makeFamily(FuncCall, Id_s, Dot_s, AParams_s, first2, any).
                             if (parameters[parameters.length - 2].trim().equals("first2")) {
-                              //  System.out.println("[first2] node on top: " + node_on_top);
                                 if (!semantic_stack.isEmpty()) {
                                     node_on_top = semantic_stack.peek();
                                     if (parameters[3].trim().equals(node_on_top.m_sa_name)) {
@@ -535,15 +531,12 @@ public class SyntacticAnalyser {
                                     }
                                 }
                                 node_on_top = semantic_stack.peek();
-                               // System.out.println("[first2] para1 " + parameters[1].trim());
-                                // real kid first 2 (any one is enough)
                                 ArrayList<String> string_kids = new ArrayList<>();
                                 string_kids.add(parameters[1].trim());
                                 string_kids.add(parameters[2].trim());
                                 String name_node_on_top = node_on_top.m_sa_name;
-                                //System.out.println("[first2] name_node_on_top: " + name_node_on_top);
+
                                 if (ifTheKidsInMakeFamily(string_kids, name_node_on_top)) {
-                                   // System.out.println("[first2] add to para_nodes: ");
                                     Node node_to_pop = semantic_stack.pop();
                                     para_nodes.add(node_to_pop);
                                 }
@@ -639,14 +632,12 @@ public class SyntacticAnalyser {
                 Node opNode;
                 if (skip) {
                     if (!para_nodes.isEmpty()) {
-                      //  System.out.println("after make family: skip node to push " + para_nodes.get(0));
                         semantic_stack.push(para_nodes.get(0));
                     }
 
                 } else {
                     // keep the arraylist consistent with the following call of makeFamily
                     if (parameters[parameters.length - 1].trim().equals("reuse")) {
-//                        System.out.println("opnode_back: "+opNode_backup.m_sa_name);
                         opNode = opNode_backup;
                     } else {
                         opNode = nodeFactory.makeNode(op, op, node_line);
@@ -669,8 +660,6 @@ public class SyntacticAnalyser {
                 }
             }
         }
-//        String values = Arrays.toString(semantic_stack.toArray());
-//        System.out.println(values);
     }
 
 

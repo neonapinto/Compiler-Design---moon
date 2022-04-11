@@ -1,5 +1,8 @@
 package AST;
 
+
+import visitors.Visitor;
+
 public class AddOpNode extends Node {
 
     public AddOpNode(String p_data, int line) {
@@ -18,6 +21,10 @@ public class AddOpNode extends Node {
         super(p_data);
         this.addChild(p_leftChild);
         this.addChild(p_rightChild);
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
 }

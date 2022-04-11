@@ -1,5 +1,6 @@
 package AST;
 
+import visitors.Visitor;
 
 public class WhileStatNode extends Node {
     public WhileStatNode() {
@@ -10,4 +11,7 @@ public class WhileStatNode extends Node {
         super("", p_parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

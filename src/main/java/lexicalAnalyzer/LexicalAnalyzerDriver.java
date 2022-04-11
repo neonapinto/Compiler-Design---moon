@@ -23,13 +23,13 @@ public class LexicalAnalyzerDriver {
     // tokenizing single file
     static void LexicalAnalyzerOneFile(String file_path) {
         LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
-        lexicalAnalyzer.createTable();
-        lexicalAnalyzer.IOFileSetup(file_path);
-
+        System.out.println("---------------Lexer---------------");
+        lexicalAnalyzer.createTransitionTable();
+        lexicalAnalyzer.fileSetup(file_path);
         while (lexicalAnalyzer.nextToken() != null) {
             if (lexicalAnalyzer.isFinished())
                 break;
         }
-        lexicalAnalyzer.IOFileClose();
+        lexicalAnalyzer.closeFiles();
     }
 }

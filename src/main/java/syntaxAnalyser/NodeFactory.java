@@ -3,7 +3,6 @@ package syntaxAnalyser;
 import AST.*;
 
 public class NodeFactory {
-
     public Node makeNode(String type, String lexeme, int line) {
         switch (type) {
             case"Null":

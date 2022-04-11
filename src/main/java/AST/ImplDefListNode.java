@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 import java.util.List;
 
 public class ImplDefListNode extends Node {
@@ -18,5 +20,7 @@ public class ImplDefListNode extends Node {
             this.addChild(child);
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

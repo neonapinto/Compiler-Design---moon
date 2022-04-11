@@ -1,0 +1,16 @@
+func printArray(res: integer) -> void   // 2.1, 2.2
+{
+  write(res);
+}
+
+// main funtion to test above
+func main() -> void
+{
+  let a: integer;                                   // 1.1
+  let b: integer;
+  let res: integer;
+  a = 4;                                           // 3.1
+  b = 6;                                           // 3.1
+  res = a + b;                                           // 3.1
+  printArray(res);                                    // 2.1, 2.2
+}

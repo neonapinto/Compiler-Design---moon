@@ -1,5 +1,8 @@
 package AST;
 
+
+import visitors.Visitor;
+
 public class FuncDeclNode extends Node {
     public FuncDeclNode() {
         super("");
@@ -9,4 +12,7 @@ public class FuncDeclNode extends Node {
         super("", parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

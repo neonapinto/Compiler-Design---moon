@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class FuncCallStatNode extends Node {
     public FuncCallStatNode() {
         super("");
@@ -9,4 +11,8 @@ public class FuncCallStatNode extends Node {
         super("", p_parent);
     }
 
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

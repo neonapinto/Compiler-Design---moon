@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class FParamListNode extends Node {
 
 
@@ -11,4 +13,7 @@ public class FParamListNode extends Node {
         super("", p_parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

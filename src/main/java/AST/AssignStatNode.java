@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class AssignStatNode extends Node {
 
     public AssignStatNode() {
@@ -15,4 +17,9 @@ public class AssignStatNode extends Node {
         this.addChild(p_leftChild);
         this.addChild(p_rightChild);
     }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
 }

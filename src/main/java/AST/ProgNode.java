@@ -1,5 +1,6 @@
 package AST;
 
+import visitors.Visitor;
 
 public class ProgNode extends Node {
 
@@ -18,5 +19,8 @@ public class ProgNode extends Node {
         this.addChild(p_programstatblock);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }
