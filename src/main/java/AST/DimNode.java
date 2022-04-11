@@ -1,5 +1,8 @@
 package AST;
 
+import visitors.Visitor;
+
+
 public class DimNode extends Node {
 
 
@@ -15,5 +18,8 @@ public class DimNode extends Node {
         super(p_data, p_type);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

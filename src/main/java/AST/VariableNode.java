@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class VariableNode extends Node {
     public VariableNode() {
         super("");
@@ -9,4 +11,7 @@ public class VariableNode extends Node {
         super("", p_parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

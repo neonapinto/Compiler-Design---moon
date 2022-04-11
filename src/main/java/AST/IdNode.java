@@ -1,5 +1,8 @@
 package AST;
 
+import visitors.Visitor;
+
+
 public class IdNode extends Node {
 
     public IdNode(String p_data, int line) {
@@ -14,4 +17,7 @@ public class IdNode extends Node {
         super(p_data, p_type);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

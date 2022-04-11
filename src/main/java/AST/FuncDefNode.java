@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class FuncDefNode extends Node {
 
     public FuncDefNode() {
@@ -18,4 +20,7 @@ public class FuncDefNode extends Node {
         this.addChild(p_statBlock);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

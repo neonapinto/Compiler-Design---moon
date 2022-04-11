@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class WriteStatNode extends Node {
     public WriteStatNode() {
         super("");
@@ -9,5 +11,7 @@ public class WriteStatNode extends Node {
         super("", p_parent);
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

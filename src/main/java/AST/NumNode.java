@@ -1,5 +1,8 @@
 package AST;
 
+
+import visitors.Visitor;
+
 public class NumNode extends Node {
 
     public NumNode(String p_data, int line) {
@@ -15,5 +18,8 @@ public class NumNode extends Node {
         super(p_data, p_type);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

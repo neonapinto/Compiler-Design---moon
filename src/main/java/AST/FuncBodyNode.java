@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class FuncBodyNode extends Node {
 
     public FuncBodyNode() {
@@ -10,4 +12,7 @@ public class FuncBodyNode extends Node {
         super("", p_parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

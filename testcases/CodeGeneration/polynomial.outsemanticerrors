@@ -1,0 +1,8 @@
+[9.3][semantic warning][line:36] Overridden inherited member function: 	'evaluate' in the struct class LINEAR
+[9.3][semantic warning][line:44] Overridden inherited member function: 	'evaluate' in the struct class QUADRATIC
+[10.3][semantic error][line:51] Type error in return statement:  0(integer) and POLYNOMIAL::evaluate(float)
+[12.2][semantic error][line:98] Function call with wrong type of parameters:  'f1.build(2, 3.5)'
+[12.2][semantic error][line:105] Function call with wrong type of parameters:  'f1.evaluate(counter)'
+[12.2][semantic error][line:106] Function call with wrong type of parameters:  'f2.evaluate(counter)'
+[12.2][semantic error][line:111] Function call with wrong type of parameters:  'f1.evaluate(1)'
+

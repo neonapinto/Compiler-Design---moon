@@ -1,0 +1,168 @@
+START
+=> PROG
+=> REPTPROG0
+=> STRUCTORIMPLORFUNC REPTPROG0
+=> FUNCDEF REPTPROG0
+=> FUNCHEAD FUNCBODY REPTPROG0
+=> func id lpar FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray lpar FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( id colon TYPE REPTFPARAMS3 REPTFPARAMS4 rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res colon TYPE REPTFPARAMS3 REPTFPARAMS4 rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : TYPE REPTFPARAMS3 REPTFPARAMS4 rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer REPTFPARAMS3 REPTFPARAMS4 rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer REPTFPARAMS4 rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void lcurbr REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { STATEMENT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write lpar EXPR rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( EXPR rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( ARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( TERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( id FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res VARIABLETAIL FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res RIGHTRECARITHEXPR EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res EXPR1 rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res rpar semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } STRUCTORIMPLORFUNC REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } FUNCDEF REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } FUNCHEAD FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func id lpar FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main lpar FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( FPARAMS rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( rpar arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) arrow RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> RETURNTYPE FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void FUNCBODY REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void lcurbr REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { VARDECL REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let id colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; VARDECL REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let id colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; VARDECL REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let id colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res colon TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : TYPE REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer REPTVARDECL4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; STATEMENT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; id STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a VARIABLETAIL STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a ASSIGNOP EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a assign EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = ARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = intnum RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; STATEMENT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; id STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b VARIABLETAIL STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b ASSIGNOP EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b assign EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = ARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = intnum RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; STATEMENT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; id STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res VARIABLETAIL STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res STATEMENT2 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res ASSIGNOP EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res assign EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = EXPR semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = ARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = id FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a VARIABLETAIL FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a ADDOP TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a plus TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + TERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + id FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b VARIABLETAIL FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b RIGHTRECARITHEXPR EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b EXPR1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; VARDECLORSTAT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; STATEMENT REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; id STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray STATEMENT1 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray FUNCTIONCALLTAIL STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray lpar APARAMS rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( APARAMS rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( EXPR REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( ARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( TERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( FACTOR RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( id FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res FACTOR1 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res VARIABLETAIL FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res FACTOR2 RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res RIGHTRECTERM RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res RIGHTRECARITHEXPR EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res EXPR1 REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res REPTAPARAMS1 rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res rpar STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) STATEMENT3 semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) semi REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) ; REPTFUNCBODY1 rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) ; rcurbr REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) ; } REPTPROG0
+=> func printArray ( res : integer ) -> void { write ( res ) ; } func main ( ) -> void { let a : integer ; let b : integer ; let res : integer ; a = 4 ; b = 6 ; res = a + b ; printArray ( res ) ; } 

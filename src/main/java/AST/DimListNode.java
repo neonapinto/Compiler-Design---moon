@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 import java.util.List;
 
 
@@ -20,6 +22,8 @@ public class DimListNode extends Node {
             this.addChild(child);
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

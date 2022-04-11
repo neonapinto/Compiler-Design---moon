@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class IndiceNode extends Node {
     public IndiceNode() {
         super("");
@@ -9,4 +11,7 @@ public class IndiceNode extends Node {
         super("", parent);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

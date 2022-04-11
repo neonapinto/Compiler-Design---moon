@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class DataMemNode extends Node {
     public DataMemNode() {
         super("");
@@ -9,5 +11,7 @@ public class DataMemNode extends Node {
         super("", p_parent);
     }
 
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

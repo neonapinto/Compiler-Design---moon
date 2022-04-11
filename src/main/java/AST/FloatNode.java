@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 public class FloatNode extends Node {
 
     public FloatNode(String p_data, int line) {
@@ -13,5 +15,9 @@ public class FloatNode extends Node {
 
     public FloatNode(String p_data, String p_type) {
         super(p_data, p_type);
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }

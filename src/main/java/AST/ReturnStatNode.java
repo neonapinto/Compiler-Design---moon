@@ -1,6 +1,6 @@
 package AST;
 
-
+import visitors.Visitor;
 
 public class ReturnStatNode extends Node {
 
@@ -14,5 +14,8 @@ public class ReturnStatNode extends Node {
         this.addChild(p_child);
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

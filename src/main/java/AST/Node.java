@@ -1,5 +1,9 @@
 package AST;
 
+import symbolTable.SymTab;
+import symbolTable.SymTabEntry;
+import visitors.Visitor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +39,8 @@ public abstract class Node {
     public String m_subtreeString = "";
 
     // introduced by symbol table creation visitor
-//    public SymTab m_symTab = null;
-//    public SymTabEntry m_symTabEntry = null;
+    public SymTab m_symTab = null;
+    public SymTabEntry m_symTabEntry = null;
 
     // introduced by code generation visitors
     public  String      m_localRegister      = "";
@@ -171,7 +175,6 @@ public abstract class Node {
     }
 
     public void printSubtree() {
-
         for (int i = 0; i < Node.m_nodeLevel; i++)
             System.out.print("  ");
 
@@ -249,5 +252,9 @@ public abstract class Node {
         return this;
     }
 
+
+    public void accept(Visitor p_visitor) {
+        p_visitor.visit(this);
+    }
 
 }

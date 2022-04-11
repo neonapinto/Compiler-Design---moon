@@ -1,0 +1,32 @@
+[8.1][semantic error][line:6] Multiple undeclared class: 	'POLYNOMIAL'
+[9.2][semantic warning][line:8] Overloaded member function: 	'evaluate' in the struct class: POLYNOMIAL_duplicate
+[8.3][semantic error][line:13] Multiple declared identifier in struct: 	'b' in the struct LINEAR
+[9.3][semantic warning][line:16] Overridden inherited member function: 	'evaluate' in the struct class LINEAR
+[8.5][semantic warning][line:20] shadowed inherited data member: 	'a' in the struct QUADRATIC
+[8.5][semantic warning][line:21] shadowed inherited data member: 	'b' in the struct QUADRATIC
+[9.2][semantic warning][line:24] Overloaded member function: 	'build' in the struct class: QUADRATIC
+[9.3][semantic warning][line:25] Overridden inherited member function: 	'evaluate' in the struct class QUADRATIC
+[6.1][semantic error][line:84] Definition provided for undeclared member function: 	QUADRATIC:build2
+[8.2][semantic error][line:95] Multiple defined free function: 	'f'
+[9.1][semantic warning][line:96] Overloaded free function: 	'f'
+[8.4][semantic error][line:109] Multiple declared identifier in function: 	'counter' in the function main
+[6.2][semantic error][line:4] No definition for declared member function: 	POLYNOMIAL: evaluate2
+[14.1][semantic error][line:36] Circular struct class dependency through inheritance:  'E'
+[10.3][semantic error][line:45] Type error in return statement:  0(integer) and POLYNOMIAL::evaluate(float)
+[10.1][semantic error][line:79] Type error in MultOpNode:  (float) and (integer)
+[10.2][semantic error][line:81] Type error in assignment statement:  new_function.c(float) and 1(integer)
+[10.3][semantic error][line:82] Type error in return statement:  1(integer) and QUADRATIC::build(QUADRATIC)
+[12.2][semantic error][line:112] Function call with wrong type of parameters:  'f1.build(2, 3.5)'
+[11.2][semantic error][line:114] Undeclared data member:  'c.b'
+[11.3][semantic error][line:116] Undeclared member function:  'f'
+[11.4][semantic error][line:117] Undeclared free function:  'undefined()'
+[11.1][semantic error][line:118] Undeclared local variable:  'r'
+[12.1][semantic error][line:119] Function call with wrong number of parameters:  'f(1, 1, 1)'
+[12.2][semantic error][line:120] Function call with wrong type of parameters:  'f(1.2, 1)'
+[13.1][semantic error][line:121] Use of array with wrong number of dimensions:  'i[2]'
+[13.2][semantic error][line:122] Array index is not an integer:  '1.3'
+[13.3][semantic error][line:123] Array parameter using wrong number of dimensions:  'f3(j)'
+[15.1][semantic error][line:124] '.' operator used on non-class type:  'counter.x'
+[12.2][semantic error][line:128] Function call with wrong type of parameters:  'f1.evaluate(counter)'
+[12.2][semantic error][line:129] Function call with wrong type of parameters:  'f2.evaluate(counter)'
+

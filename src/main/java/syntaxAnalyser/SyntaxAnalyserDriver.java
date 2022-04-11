@@ -7,7 +7,7 @@ public class SyntaxAnalyserDriver {
         //testcases/SyntacticAnalyserTest/syntacticCorrectFiles/no_main.src
         final String path = "testcases/SyntacticAnalyserTest/syntacticCorrectFiles/";
         File f = new File(path);
-        System.out.println("---------------------------Syntax Analyser---------------------------");
+        System.out.println("---------------------------Syntax Analyser-----------------------------");
         if (f.isDirectory()) {
             File[] files = f.listFiles(((dir, name) -> name.endsWith(".src")));
             if (files != null) {
@@ -26,13 +26,13 @@ public class SyntaxAnalyserDriver {
     static void syntacticAnalyzerOneFile(String file_path) {
         SyntacticAnalyser syntacticAnalyzer = new SyntacticAnalyser();
         syntacticAnalyzer.parserLexicalSetup(file_path);
-        syntacticAnalyzer.parserIOFileSetup(file_path);
+        syntacticAnalyzer.parserFileSetup(file_path);
         boolean syntacticCorrect = syntacticAnalyzer.parse();
         if (syntacticCorrect) {
             System.out.println("The program is syntactically correct.");
         } else {
             System.out.println("The program has syntax error(s).");
         }
-        syntacticAnalyzer.parserIOFileClose();
+        syntacticAnalyzer.parserFileClose();
     }
 }

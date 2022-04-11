@@ -1,5 +1,7 @@
 package AST;
 
+import visitors.Visitor;
+
 import java.util.List;
 
 public class StructDeclNode extends Node{
@@ -17,5 +19,8 @@ public class StructDeclNode extends Node{
         this.addChild(p_id);
         for (Node child : p_listOfStructMemberNodes)
             this.addChild(child);
+    }
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }
