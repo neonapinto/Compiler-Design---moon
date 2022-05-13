@@ -3,31 +3,35 @@ package codeGeneration;
 import lexicalAnalyzer.LexicalAnalyzer;
 import semanticAnalyzer.SemanticAnalyzer;
 import syntaxAnalyser.SyntacticAnalyser;
-
-
 import java.io.File;
+import java.util.Scanner;
 
 public class CompilerDriver {
     public static void main(String[] args) {
-        final String path = "testcases/CodeGeneration/";
+        //testcases/LexicalAnalyserTest/
+        //testcases/SyntacticAnalyserTest/syntacticCorrectFiles
+        //testcases/SyntacticAnalyserTest/syntacticIncorrectFiles
+        //testcases/SemanticAnalyserTest
+        //testcases/CodeGeneration/
+        System.out.println("Enter the file name or the directory name:");
+        Scanner sc = new Scanner(System.in);
+        String path = sc.nextLine();
         File f = new File(path);
-
         if (f.isDirectory()) {
             File[] files = f.listFiles(((dir, name) -> name.endsWith(".src")));
             if (files != null) {
-
                 for (File file : files) {
                     if(!tokenizingOneFile(file.getAbsolutePath())){
-
                         compileOneFile(file.getAbsolutePath());
                         System.out.println();
                     }
                 }
             }
-        } else {
-            if (f.getAbsolutePath().endsWith(".src")) {
+        }else if (f.getAbsolutePath().endsWith(".src")) {
                 compileOneFile(f.getAbsolutePath());
-            }
+        }
+        else{
+            System.out.println("The file or the directory is not found.");
         }
     }
 
@@ -43,7 +47,7 @@ public class CompilerDriver {
                 break;
         }
         lexicalAnalyzer.closeFiles();
-        if(!lexicalAnalyzer.lexical_errors.isEmpty()){
+        if(!lexicalAnalyzer.lex_errors.isEmpty()){
             lexer_error = true;
         }
         return lexer_error;

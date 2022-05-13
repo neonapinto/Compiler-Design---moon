@@ -54,7 +54,6 @@ public class StackBasedVisitor extends Visitor {
         // this effectively achieves Depth-First AST Traversal
         for (Node child : p_node.getChildren())
             child.accept(this);
-
     }
 
     public void visit(ImplDefNode p_node){
@@ -129,13 +128,11 @@ public class StackBasedVisitor extends Visitor {
         // generate code
         m_moonExecCode += "% processing temporal(rel): " + p_node.m_moonVarName + " := (" + p_node.getChildren().get(0).m_moonVarName + " " + p_node.getChildren().get(1).getData() + " " + p_node.getChildren().get(2).m_moonVarName + ")\n";
 
-
         p_node.getChildren().get(0).accept(this);
 
         String local_register1 = this.m_registerPool.pop();
         String local_register2 = this.m_registerPool.pop();
         String local_register3 = this.m_registerPool.pop();
-
 
         // register 2
         m_moonExecCode += m_mooncodeindent + "lw\t" + local_register1 + ",offset(r0)\n";
@@ -144,7 +141,6 @@ public class StackBasedVisitor extends Visitor {
         if (func_or_var1.m_name != null) {
             // if it is a parameter variable and an array, retrieve the real address
             if (func_or_var1.m_dims != null && !func_or_var1.m_dims.isEmpty()) {
-
                 if (func_or_var1.m_kind.equals("param")) {
                     m_moonExecCode += m_mooncodeindent + "add\tr14,r14," + local_register1 + "\n";
                     m_moonExecCode += m_mooncodeindent + "lw\t" + local_register2 + ",0(r14)\n";
@@ -162,9 +158,7 @@ public class StackBasedVisitor extends Visitor {
             }
         }
 
-
         p_node.getChildren().get(2).accept(this);
-
         m_moonExecCode += m_mooncodeindent + "lw\t" + local_register1 + ",offset(r0)\n";
         // register 3
         // when the variable is an array, the value at the offset is an address, retrieve the address to get the real offset
@@ -172,7 +166,6 @@ public class StackBasedVisitor extends Visitor {
         if (func_or_var2.m_name != null) {
             // if it is a parameter variable and an array, retrieve the real address
             if (func_or_var2.m_dims != null && !func_or_var2.m_dims.isEmpty()) {
-
                 if (func_or_var2.m_kind.equals("param")) {
                     m_moonExecCode += m_mooncodeindent + "add\tr14,r14," + local_register1 + "\n";
                     m_moonExecCode += m_mooncodeindent + "lw\t" + local_register3 + ",0(r14)\n";
@@ -468,7 +461,7 @@ public class StackBasedVisitor extends Visitor {
                 // load the values of the operands into registers
                 m_moonExecCode += m_mooncodeindent + "lw\t" + local_register1 + "," + p_node.m_symTab.lookupName(index_temp_varible).m_offset + "(r14)\n";
                 m_moonExecCode += m_mooncodeindent + "muli\t" + local_register2 + "," + local_register1 + "," + size_of_type + "\n";
-//             add the probable address retrieve from before
+                // add the probable address retrieve from before
                 m_moonExecCode += m_mooncodeindent + "add\t" + local_register1 + "," + local_register4 + "," + local_register2 + "\n";
                 m_moonExecCode += m_mooncodeindent + "sw\toffset(r0)," + local_register1 + "\n";
                 // deallocate the registers
@@ -481,7 +474,6 @@ public class StackBasedVisitor extends Visitor {
                 m_moonExecCode += m_mooncodeindent + "sw\toffset(r0),r0\n";
             }
         }
-
     }
 
     public void visit(IdNode p_node) {
@@ -553,8 +545,6 @@ public class StackBasedVisitor extends Visitor {
         // generate code
         m_moonExecCode += "% processing: read(" + p_node.getChildren().get(0).m_moonVarName + ")\n";
         // prompt user to enter
-//        m_moonExecCode += m_mooncodeindent + "lw\t" + local_register1 + ",offset(r0)\n";
-
         m_moonExecCode += m_mooncodeindent2 + "% ask for " + p_node.getChildren().get(0).m_moonVarName + "\n";
         m_moonExecCode += m_mooncodeindent + "addi\t" + local_register1 + ",r0,ent" + p_node.getChildren().get(0).m_moonVarName + "\n";
         m_moonDataCode += String.format("%-10s", "ent" + p_node.getChildren().get(0).m_moonVarName) + "db\t\"Enter " + p_node.getChildren().get(0).m_moonVarName + ": \", 0\n";
@@ -576,7 +566,6 @@ public class StackBasedVisitor extends Visitor {
         m_moonExecCode += m_mooncodeindent + "subi\tr14,r14," + p_node.m_symTab.m_size + "\n";
         // receive the return value in r13 and right away put it in the next called function's stack frame
         m_moonExecCode += m_mooncodeindent + "sw\t" + p_node.m_symTab.lookupName(p_node.getChildren().get(0).m_moonVarName).m_offset + "(r14),r13\n";
-
         //deallocate local register
         this.m_registerPool.push(local_register1);
     }
@@ -592,7 +581,6 @@ public class StackBasedVisitor extends Visitor {
         //generate code
         m_moonExecCode += "% processing: write(" + p_node.getChildren().get(0).m_moonVarName + ")\n";
 //        // put the value to be printed into a register
-
 
         m_moonExecCode += m_mooncodeindent + "lw\t" + local_register2 + ",offset(r0)\n";
         // when the variable is an array, the value at the offset is an address, retrieve the address to get the real offset
@@ -823,7 +811,6 @@ public class StackBasedVisitor extends Visitor {
                     SymTabEntry func_var_entry = class_entry.m_subtable.lookupNameInOneTable(var_func_name);
                     table_entry_of_called_function = func_var_entry;
                 }
-
             }
         }
 

@@ -8,6 +8,8 @@
     multi line
 */
 
+/* unterminated block comment
+    /* nest  */
 
 
 /*
@@ -17,7 +19,6 @@
 
 
 
-/* unterminated block comment
-    /* nest  */
+
 
 

@@ -57,7 +57,7 @@
 |    =====================================================================================
 | function  | main          | ():void                                         |
 |    =====================================================================================
-|    | table: main                  scope offset: -128                                   |
+|    | table: main                  scope offset: -132                                   |
 |    =====================================================================================
 |    | local     | arr           | integer[7]                            | 28    | -36   |
 |    | litval_0  | t34           | integer                               | 4     | -40   |
@@ -65,23 +65,24 @@
 |    | litval_64 | t36           | integer                               | 4     | -48   |
 |    | litval_1  | t37           | integer                               | 4     | -52   |
 |    | tempvar   | t38           | integer                               | 4     | -56   |
-|    | litval_2  | t39           | integer                               | 4     | -60   |
-|    | tempvar   | t40           | integer                               | 4     | -64   |
-|    | litval_25 | t41           | integer                               | 4     | -68   |
-|    | litval_3  | t42           | integer                               | 4     | -72   |
-|    | tempvar   | t43           | integer                               | 4     | -76   |
-|    | litval_12 | t44           | integer                               | 4     | -80   |
-|    | litval_4  | t45           | integer                               | 4     | -84   |
-|    | tempvar   | t46           | integer                               | 4     | -88   |
-|    | litval_22 | t47           | integer                               | 4     | -92   |
-|    | litval_5  | t48           | integer                               | 4     | -96   |
-|    | tempvar   | t49           | integer                               | 4     | -100  |
-|    | litval_11 | t50           | integer                               | 4     | -104  |
-|    | litval_6  | t51           | integer                               | 4     | -108  |
-|    | tempvar   | t52           | integer                               | 4     | -112  |
-|    | litval_90 | t53           | integer                               | 4     | -116  |
-|    | litval_7  | t54           | integer                               | 4     | -120  |
+|    | litval_34 | t39           | integer                               | 4     | -60   |
+|    | litval_2  | t40           | integer                               | 4     | -64   |
+|    | tempvar   | t41           | integer                               | 4     | -68   |
+|    | litval_25 | t42           | integer                               | 4     | -72   |
+|    | litval_3  | t43           | integer                               | 4     | -76   |
+|    | tempvar   | t44           | integer                               | 4     | -80   |
+|    | litval_12 | t45           | integer                               | 4     | -84   |
+|    | litval_4  | t46           | integer                               | 4     | -88   |
+|    | tempvar   | t47           | integer                               | 4     | -92   |
+|    | litval_22 | t48           | integer                               | 4     | -96   |
+|    | litval_5  | t49           | integer                               | 4     | -100  |
+|    | tempvar   | t50           | integer                               | 4     | -104  |
+|    | litval_11 | t51           | integer                               | 4     | -108  |
+|    | litval_6  | t52           | integer                               | 4     | -112  |
+|    | tempvar   | t53           | integer                               | 4     | -116  |
+|    | litval_90 | t54           | integer                               | 4     | -120  |
 |    | litval_7  | t55           | integer                               | 4     | -124  |
 |    | litval_7  | t56           | integer                               | 4     | -128  |
+|    | litval_7  | t57           | integer                               | 4     | -132  |
 |    =====================================================================================
 =====================================================================================

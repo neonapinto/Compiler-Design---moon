@@ -19,6 +19,7 @@ public class ReconstructSourceVisitor extends Visitor {
         // this effectively achieves Depth-First AST Traversal
         for (Node child : p_node.getChildren())
             child.accept(this);
+
         for (Node child : p_node.getChildren()) {
             p_node.m_subtreeString += child.m_subtreeString;
         }

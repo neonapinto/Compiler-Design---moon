@@ -446,8 +446,15 @@ endwhile60
           add	r14,r14,r8
           sw	-36(r14),r9
           sub	r14,r14,r8
-% processing assignment: arr[1] := 
+% processing assignment: arr[1] := t39
+% processing literal: t39 := 34
+          addi	r9,r0,34
+          sw	-60(r14),r9
+          sw	offset(r0),r0
           lw	r9,offset(r0)
+          add	r14,r14,r9
+          lw	r8,-60(r14)
+          sub	r14,r14,r9
 % processing literal: t37 := 1
           addi	r4,r0,1
           sw	-52(r14),r4
@@ -466,26 +473,26 @@ endwhile60
           add	r14,r14,r9
           sw	-36(r14),r8
           sub	r14,r14,r9
-% processing assignment: arr[2] := t41
-% processing literal: t41 := 25
+% processing assignment: arr[2] := t42
+% processing literal: t42 := 25
           addi	r8,r0,25
-          sw	-68(r14),r8
+          sw	-72(r14),r8
           sw	offset(r0),r0
           lw	r8,offset(r0)
           add	r14,r14,r8
-          lw	r9,-68(r14)
+          lw	r9,-72(r14)
           sub	r14,r14,r8
-% processing literal: t39 := 2
+% processing literal: t40 := 2
           addi	r2,r0,2
-          sw	-60(r14),r2
+          sw	-64(r14),r2
           sw	offset(r0),r0
           addi	r4,r0,0
-% processing offsets(mul): arr := t39 * 1
-          lw	r2,-60(r14)
-          muli	r1,r2,1
-          sw	-64(r14),r1
-% processing offsets(mul size): arr := arr * 4
+% processing offsets(mul): arr := t40 * 1
           lw	r2,-64(r14)
+          muli	r1,r2,1
+          sw	-68(r14),r1
+% processing offsets(mul size): arr := arr * 4
+          lw	r2,-68(r14)
           muli	r1,r2,4
           add	r2,r4,r1
           sw	offset(r0),r2
@@ -493,26 +500,26 @@ endwhile60
           add	r14,r14,r8
           sw	-36(r14),r9
           sub	r14,r14,r8
-% processing assignment: arr[3] := t44
-% processing literal: t44 := 12
+% processing assignment: arr[3] := t45
+% processing literal: t45 := 12
           addi	r9,r0,12
-          sw	-80(r14),r9
+          sw	-84(r14),r9
           sw	offset(r0),r0
           lw	r9,offset(r0)
           add	r14,r14,r9
-          lw	r8,-80(r14)
+          lw	r8,-84(r14)
           sub	r14,r14,r9
-% processing literal: t42 := 3
+% processing literal: t43 := 3
           addi	r4,r0,3
-          sw	-72(r14),r4
+          sw	-76(r14),r4
           sw	offset(r0),r0
           addi	r2,r0,0
-% processing offsets(mul): arr := t42 * 1
-          lw	r4,-72(r14)
-          muli	r7,r4,1
-          sw	-76(r14),r7
-% processing offsets(mul size): arr := arr * 4
+% processing offsets(mul): arr := t43 * 1
           lw	r4,-76(r14)
+          muli	r7,r4,1
+          sw	-80(r14),r7
+% processing offsets(mul size): arr := arr * 4
+          lw	r4,-80(r14)
           muli	r7,r4,4
           add	r4,r2,r7
           sw	offset(r0),r4
@@ -520,26 +527,26 @@ endwhile60
           add	r14,r14,r9
           sw	-36(r14),r8
           sub	r14,r14,r9
-% processing assignment: arr[4] := t47
-% processing literal: t47 := 22
+% processing assignment: arr[4] := t48
+% processing literal: t48 := 22
           addi	r8,r0,22
-          sw	-92(r14),r8
+          sw	-96(r14),r8
           sw	offset(r0),r0
           lw	r8,offset(r0)
           add	r14,r14,r8
-          lw	r9,-92(r14)
+          lw	r9,-96(r14)
           sub	r14,r14,r8
-% processing literal: t45 := 4
+% processing literal: t46 := 4
           addi	r2,r0,4
-          sw	-84(r14),r2
+          sw	-88(r14),r2
           sw	offset(r0),r0
           addi	r4,r0,0
-% processing offsets(mul): arr := t45 * 1
-          lw	r2,-84(r14)
-          muli	r1,r2,1
-          sw	-88(r14),r1
-% processing offsets(mul size): arr := arr * 4
+% processing offsets(mul): arr := t46 * 1
           lw	r2,-88(r14)
+          muli	r1,r2,1
+          sw	-92(r14),r1
+% processing offsets(mul size): arr := arr * 4
+          lw	r2,-92(r14)
           muli	r1,r2,4
           add	r2,r4,r1
           sw	offset(r0),r2
@@ -547,26 +554,26 @@ endwhile60
           add	r14,r14,r8
           sw	-36(r14),r9
           sub	r14,r14,r8
-% processing assignment: arr[5] := t50
-% processing literal: t50 := 11
+% processing assignment: arr[5] := t51
+% processing literal: t51 := 11
           addi	r9,r0,11
-          sw	-104(r14),r9
+          sw	-108(r14),r9
           sw	offset(r0),r0
           lw	r9,offset(r0)
           add	r14,r14,r9
-          lw	r8,-104(r14)
+          lw	r8,-108(r14)
           sub	r14,r14,r9
-% processing literal: t48 := 5
+% processing literal: t49 := 5
           addi	r4,r0,5
-          sw	-96(r14),r4
+          sw	-100(r14),r4
           sw	offset(r0),r0
           addi	r2,r0,0
-% processing offsets(mul): arr := t48 * 1
-          lw	r4,-96(r14)
-          muli	r7,r4,1
-          sw	-100(r14),r7
-% processing offsets(mul size): arr := arr * 4
+% processing offsets(mul): arr := t49 * 1
           lw	r4,-100(r14)
+          muli	r7,r4,1
+          sw	-104(r14),r7
+% processing offsets(mul size): arr := arr * 4
+          lw	r4,-104(r14)
           muli	r7,r4,4
           add	r4,r2,r7
           sw	offset(r0),r4
@@ -574,26 +581,26 @@ endwhile60
           add	r14,r14,r9
           sw	-36(r14),r8
           sub	r14,r14,r9
-% processing assignment: arr[6] := t53
-% processing literal: t53 := 90
+% processing assignment: arr[6] := t54
+% processing literal: t54 := 90
           addi	r8,r0,90
-          sw	-116(r14),r8
+          sw	-120(r14),r8
           sw	offset(r0),r0
           lw	r8,offset(r0)
           add	r14,r14,r8
-          lw	r9,-116(r14)
+          lw	r9,-120(r14)
           sub	r14,r14,r8
-% processing literal: t51 := 6
+% processing literal: t52 := 6
           addi	r2,r0,6
-          sw	-108(r14),r2
+          sw	-112(r14),r2
           sw	offset(r0),r0
           addi	r4,r0,0
-% processing offsets(mul): arr := t51 * 1
-          lw	r2,-108(r14)
-          muli	r1,r2,1
-          sw	-112(r14),r1
-% processing offsets(mul size): arr := arr * 4
+% processing offsets(mul): arr := t52 * 1
           lw	r2,-112(r14)
+          muli	r1,r2,1
+          sw	-116(r14),r1
+% processing offsets(mul size): arr := arr * 4
+          lw	r2,-116(r14)
           muli	r1,r2,4
           add	r2,r4,r1
           sw	offset(r0),r2
@@ -601,50 +608,50 @@ endwhile60
           add	r14,r14,r8
           sw	-36(r14),r9
           sub	r14,r14,r8
-          sw	offset(r0),r0
-% processing literal: t54 := 7
-          addi	r9,r0,7
-          sw	-120(r14),r9
-          sw	offset(r0),r0
-% processing: function call to printArray 
-          addi	r9,r0,92
-          sw	-140(r14),r9
-          lw	r9,-120(r14)
-          sw	-144(r14),r9
-          addi	r14,r14,-128
-          jl	r15,printArray
-          subi	r14,r14,-128
-          lw	r9,-132(r14)
-          sw	0(r14),r9
           sw	offset(r0),r0
 % processing literal: t55 := 7
-          addi	r8,r0,7
-          sw	-124(r14),r8
-          sw	offset(r0),r0
-% processing: function call to bubbleSort 
-          addi	r8,r0,92
-          sw	-140(r14),r8
-          lw	r8,-124(r14)
-          sw	-144(r14),r8
-          addi	r14,r14,-128
-          jl	r15,bubbleSort
-          subi	r14,r14,-128
-          lw	r8,-132(r14)
-          sw	0(r14),r8
-          sw	offset(r0),r0
-% processing literal: t56 := 7
           addi	r9,r0,7
-          sw	-128(r14),r9
+          sw	-124(r14),r9
           sw	offset(r0),r0
 % processing: function call to printArray 
-          addi	r9,r0,92
-          sw	-140(r14),r9
-          lw	r9,-128(r14)
+          addi	r9,r0,96
           sw	-144(r14),r9
-          addi	r14,r14,-128
+          lw	r9,-124(r14)
+          sw	-148(r14),r9
+          addi	r14,r14,-132
           jl	r15,printArray
-          subi	r14,r14,-128
+          subi	r14,r14,-132
+          lw	r9,-136(r14)
+          sw	0(r14),r9
+          sw	offset(r0),r0
+% processing literal: t56 := 7
+          addi	r8,r0,7
+          sw	-128(r14),r8
+          sw	offset(r0),r0
+% processing: function call to bubbleSort 
+          addi	r8,r0,96
+          sw	-144(r14),r8
+          lw	r8,-128(r14)
+          sw	-148(r14),r8
+          addi	r14,r14,-132
+          jl	r15,bubbleSort
+          subi	r14,r14,-132
+          lw	r8,-136(r14)
+          sw	0(r14),r8
+          sw	offset(r0),r0
+% processing literal: t57 := 7
+          addi	r9,r0,7
+          sw	-132(r14),r9
+          sw	offset(r0),r0
+% processing: function call to printArray 
+          addi	r9,r0,96
+          sw	-144(r14),r9
           lw	r9,-132(r14)
+          sw	-148(r14),r9
+          addi	r14,r14,-132
+          jl	r15,printArray
+          subi	r14,r14,-132
+          lw	r9,-136(r14)
           sw	0(r14),r9
           hlt
 

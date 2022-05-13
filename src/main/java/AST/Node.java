@@ -178,7 +178,7 @@ public abstract class Node {
         for (int i = 0; i < Node.m_nodeLevel; i++)
             System.out.print("  ");
 
-        String toprint = String.format("%-75s", this.getClass().getName());
+        String toprint = String.format("%-75s", this.getClass().getName().substring(4, this.getClass().getName().length()));
         for (int i = 0; i < Node.m_nodeLevel; i++)
             toprint = toprint.substring(0, toprint.length() - 2);
         toprint += String.format("%-22s", (this.getData() == null || this.getData().isEmpty()) ? " | " : " | " + this.getData());
@@ -251,7 +251,6 @@ public abstract class Node {
         }
         return this;
     }
-
 
     public void accept(Visitor p_visitor) {
         p_visitor.visit(this);

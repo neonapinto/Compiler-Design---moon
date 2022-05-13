@@ -100,8 +100,10 @@ public class ComputeMemSizeVisitor extends Visitor {
         for (SymTabEntry entry : p_node.m_symTab.m_symList) {
             entry.m_offset = p_node.m_symTab.m_size - entry.m_size;
             p_node.m_symTab.m_size -= entry.m_size;
+
         }
     }
+
 
     public void visit(StructListNode p_node) {
         for (Node child : p_node.getChildren()) {
@@ -127,7 +129,6 @@ public class ComputeMemSizeVisitor extends Visitor {
                 String class_name_duplicate = class_name + "_duplicate";
                 local_table = new SymTab(1, class_name_duplicate, p_node.m_symTab);
                 p_node.m_symTabEntry = new StructEntry(class_name_duplicate, local_table);
-//                p_node.m_symTab.addEntry(p_node.m_symTabEntry);
 
             } else {
                 p_node.m_symTab.addEntry(p_node.m_symTabEntry);
@@ -147,6 +148,7 @@ public class ComputeMemSizeVisitor extends Visitor {
         for (SymTabEntry entry : p_node.m_symTab.m_symList) {
             entry.m_offset = p_node.m_symTab.m_size - entry.m_size;
             p_node.m_symTab.m_size -= entry.m_size;
+
         }
     }
 
