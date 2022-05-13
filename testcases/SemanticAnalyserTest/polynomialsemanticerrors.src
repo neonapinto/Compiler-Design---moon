@@ -101,7 +101,7 @@ func f3(p1: integer[2][3]) -> integer {}
 // ====== main ====== //
 func main() -> void
 {
-  let a: a;                                                         // 11.5
+  let a: b;                                                         // 11.5
   let c: C;
   let f1: LINEAR;
   let f2: QUADRATIC;

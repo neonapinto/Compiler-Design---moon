@@ -87,7 +87,7 @@
 [inlinecmt, // ====== main ====== //, 101]
 [func, func, 102][id, main, 102] [openpar, (, 102] [closepar, ), 102] [arrow, ->, 102] [void, void, 102] 
 [opencubr, {, 103]
-[let, let, 104][id, a, 104] [colon, :, 104] [id, a, 104] [semi, ;, 104] [inlinecmt, // 11.5, 104] 
+[let, let, 104][id, a, 104] [colon, :, 104] [id, b, 104] [semi, ;, 104] [inlinecmt, // 11.5, 104] 
 [let, let, 105][id, c, 105] [colon, :, 105] [id, C, 105] [semi, ;, 105] 
 [let, let, 106][id, f1, 106] [colon, :, 106] [id, LINEAR, 106] [semi, ;, 106] 
 [let, let, 107][id, f2, 107] [colon, :, 107] [id, QUADRATIC, 107] [semi, ;, 107] 

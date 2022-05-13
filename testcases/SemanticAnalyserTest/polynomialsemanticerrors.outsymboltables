@@ -1,110 +1,183 @@
 
 =====================================================================================
-| table: global                scope offset: 0                                      |
+| table: global                scope offset: -124                                   |
 =====================================================================================
 | struct    | POLYNOMIAL                            |
 |    =====================================================================================
-|    | table: POLYNOMIAL            scope offset: 0                                      |
+|    | table: POLYNOMIAL            scope offset: -28                                    |
 |    =====================================================================================
 |    | inherit   | none          |                                       | 0     | 0     |
-|    | function  | evaluate      | (x):float                                       | public    |null
-|    | function  | evaluate2     | (x):float                                       | public    |null
+|    | function  | evaluate      | (float):float                                   | public    |
+|    |    =====================================================================================
+|    |    | table: POLYNOMIAL::evaluate  scope offset: -28                                    |
+|    |    =====================================================================================
+|    |    | param     | x             | float                                 | 8     | -20   |
+|    |    | this      | this          | float                                 | 4     | -24   |
+|    |    | litval_0  | t1            | integer                               | 4     | -28   |
+|    |    =====================================================================================
+|    | function  | evaluate2     | (float):float                                   | public    |null
 |    =====================================================================================
 | struct    | LINEAR                                |
 |    =====================================================================================
-|    | table: LINEAR                scope offset: -16                                    |
+|    | table: LINEAR                scope offset: -172                                   |
 |    =====================================================================================
-|    | inherit   | POLYNOMIAL    |                                       | 0     | 0     |
-|    | data      | float         | float                     | private   | 8     | -8    |
-|    | data      | integer       | float                     | private   | 8     | -16   |
-|    | function  | build         | (A, B):LINEAR                                   | public    |null
-|    | function  | evaluate      | (x):float                                       | public    |null
+|    | inherit   | POLYNOMIAL    |                                       | 28    | 0     |
+|    | data      | a             | float                     | private   | 8     | -8    |
+|    | data      | b             | float                     | private   | 8     | -16   |
+|    | function  | build         | (float, float):LINEAR                           | public    |
+|    |    =====================================================================================
+|    |    | table: LINEAR::build         scope offset: -72                                    |
+|    |    =====================================================================================
+|    |    | param     | A             | float                                 | 8     | -28   |
+|    |    | param     | B             | float                                 | 8     | -36   |
+|    |    | this      | this          | LINEAR                                | 4     | -40   |
+|    |    | local     | new_function  | LINEAR                                | 16    | -56   |
+|    |    | temp_dot  | t2            | float                                 | 8     | -64   |
+|    |    | temp_dot  | t3            | float                                 | 8     | -72   |
+|    |    =====================================================================================
+|    | function  | evaluate      | (float):float                                   | public    |
+|    |    =====================================================================================
+|    |    | table: LINEAR::evaluate      scope offset: -56                                    |
+|    |    =====================================================================================
+|    |    | param     | x             | float                                 | 8     | -20   |
+|    |    | this      | this          | float                                 | 4     | -24   |
+|    |    | local     | result        | float                                 | 8     | -32   |
+|    |    | litval    | t4            | float                                 | 8     | -40   |
+|    |    | tempvar   | t5            | float                                 | 8     | -48   |
+|    |    | tempvar   | t6            | float                                 | 8     | -56   |
+|    |    =====================================================================================
 |    =====================================================================================
 | struct    | QUADRATIC                             |
 |    =====================================================================================
-|    | table: QUADRATIC             scope offset: -8                                     |
+|    | table: QUADRATIC             scope offset: -376                                   |
 |    =====================================================================================
-|    | inherit   | LINEAR        |                                       | 0     | 0     |
-|    | data      | float         | float                     | private   | 8     | -8    |
-|    | function  | build         | (A, B, C):QUADRATIC                             | public    |null
-|    | function  | evaluate      | (x):float                                       | public    |null
+|    | inherit   | LINEAR        |                                       | 172   | 0     |
+|    | data      | a             | float                     | private   | 8     | -8    |
+|    | data      | b             | float                     | private   | 8     | -16   |
+|    | data      | c             | float                     | private   | 8     | -24   |
+|    | function  | build         | (float, float, float):QUADRATIC                 | public    |
+|    |    =====================================================================================
+|    |    | table: QUADRATIC::build      scope offset: -116                                   |
+|    |    =====================================================================================
+|    |    | param     | A             | float                                 | 8     | -36   |
+|    |    | param     | B             | float                                 | 8     | -44   |
+|    |    | param     | C             | float                                 | 8     | -52   |
+|    |    | this      | this          | QUADRATIC                             | 4     | -56   |
+|    |    | local     | new_function  | QUADRATIC                             | 24    | -80   |
+|    |    | temp_dot  | t11           | float                                 | 8     | -88   |
+|    |    | litval_3  | t12           | integer                               | 4     | -92   |
+|    |    | tempvar   | t13           | typeerror                             | 0     | -92   |
+|    |    | tempvar   | t14           | typeerror                             | 0     | -92   |
+|    |    | temp_dot  | t15           | float                                 | 8     | -100  |
+|    |    | temp_dot  | t16           | float                                 | 8     | -108  |
+|    |    | litval_1  | t17           | integer                               | 4     | -112  |
+|    |    | litval_1  | t18           | integer                               | 4     | -116  |
+|    |    =====================================================================================
+|    | function  | evaluate      | (float):float                                   | public    |
+|    |    =====================================================================================
+|    |    | table: QUADRATIC::evaluate   scope offset: -64                                    |
+|    |    =====================================================================================
+|    |    | param     | x             | float                                 | 8     | -20   |
+|    |    | this      | this          | float                                 | 4     | -24   |
+|    |    | local     | result        | float                                 | 8     | -32   |
+|    |    | tempvar   | t7            | float                                 | 8     | -40   |
+|    |    | tempvar   | t8            | float                                 | 8     | -48   |
+|    |    | tempvar   | t9            | float                                 | 8     | -56   |
+|    |    | tempvar   | t10           | float                                 | 8     | -64   |
+|    |    =====================================================================================
 |    =====================================================================================
 | struct    | C                                     |
 |    =====================================================================================
-|    | table: C                     scope offset: -4                                     |
+|    | table: C                     scope offset: -8                                     |
 |    =====================================================================================
-|    | inherit   | E             |                                       | 0     | 0     |
-|    | data      | integer       | integer                   | private   | 4     | -4    |
+|    | inherit   | E             |                                       | 4     | 0     |
+|    | data      | a             | integer                   | private   | 4     | -4    |
 |    =====================================================================================
 | struct    | D                                     |
 |    =====================================================================================
-|    | table: D                     scope offset: -4                                     |
+|    | table: D                     scope offset: -12                                    |
 |    =====================================================================================
-|    | inherit   | C             |                                       | 0     | 0     |
-|    | data      | integer       | integer                   | private   | 4     | -4    |
+|    | inherit   | C             |                                       | 8     | 0     |
+|    | data      | b             | integer                   | private   | 4     | -4    |
 |    =====================================================================================
 | struct    | E                                     |
 |    =====================================================================================
-|    | table: E                     scope offset: -4                                     |
+|    | table: E                     scope offset: -16                                    |
 |    =====================================================================================
-|    | inherit   | D             |                                       | 0     | 0     |
-|    | data      | integer       | integer                   | private   | 4     | -4    |
+|    | inherit   | D             |                                       | 12    | 0     |
+|    | data      | c             | integer                   | private   | 4     | -4    |
 |    =====================================================================================
-| function  |               | ():null                                         |
+| local     | new_function  | QUADRATIC                             | 24    | -100  |
+| temp_dot  | t19           | float                                 | 8     | -108  |
+| temp_dot  | t20           | float                                 | 8     | -116  |
+| temp_dot  | t21           | float                                 | 8     | -124  |
+| function  | f             | (integer):void                                  |
 |    =====================================================================================
-|    | table:                       scope offset: -4                                     |
+|    | table: f                     scope offset: -12                                    |
 |    =====================================================================================
+|    | param     | i             | integer                               | 4     | -12   |
 |    =====================================================================================
-| function  |               | ():null                                         |
+| function  | f             | (integer):void                                  |
 |    =====================================================================================
-|    | table:                       scope offset: -4                                     |
+|    | table: f                     scope offset: -12                                    |
 |    =====================================================================================
+|    | param     | i             | integer                               | 4     | -12   |
 |    =====================================================================================
-| function  |               | ():null                                         |
+| function  | f             | (integer, integer):integer                      |
 |    =====================================================================================
-|    | table:                       scope offset: -4                                     |
+|    | table: f                     scope offset: -16                                    |
 |    =====================================================================================
+|    | param     | i             | integer                               | 4     | -12   |
+|    | param     | j             | integer                               | 4     | -16   |
 |    =====================================================================================
-| function  |               | ():null                                         |
+| function  | f3            | (integer[2][3]):integer                         |
 |    =====================================================================================
-|    | table:                       scope offset: -4                                     |
+|    | table: f3                    scope offset: -12                                    |
 |    =====================================================================================
+|    | param     | p1            | integer[2][3]                         | 4     | -12   |
 |    =====================================================================================
-| function  |               | ():null                                         |
+| function  | main          | ():void                                         |
 |    =====================================================================================
-|    | table:                       scope offset: -200                                   |
+|    | table: main                  scope offset: -332                                   |
 |    =====================================================================================
-|    | temp_dot  | t1            | LINEAR                                | 16    | -20   |
-|    | litval_2  | t2            | integer                               | 4     | -24   |
-|    | litval    | t3            | float                                 | 8     | -32   |
-|    | retval    | t4            | LINEAR                                | 16    | -48   |
-|    | temp_dot  | t5            | QUADRATIC                             | 8     | -56   |
-|    | litval    | t6            | float                                 | 8     | -64   |
-|    | litval    | t7            | float                                 | 8     | -72   |
-|    | retval    | t8            | QUADRATIC                             | 8     | -80   |
-|    | litval_1  | t9            | integer                               | 4     | -84   |
-|    | litval_5  | t10           | integer                               | 4     | -88   |
-|    | litval_1  | t11           | integer                               | 4     | -92   |
-|    | litval_1  | t12           | integer                               | 4     | -96   |
-|    | litval_1  | t13           | integer                               | 4     | -100  |
-|    | retval    | t14           | integer                               | 4     | -104  |
-|    | litval    | t15           | float                                 | 8     | -112  |
-|    | litval_1  | t16           | integer                               | 4     | -116  |
-|    | retval    | t17           | integer                               | 4     | -120  |
-|    | litval_2  | t18           | integer                               | 4     | -124  |
-|    | tempvar   | t19           | integer                               | 4     | -128  |
-|    | litval_1  | t20           | integer                               | 4     | -132  |
-|    | litval_2  | t21           | integer                               | 4     | -136  |
-|    | litval    | t22           | float                                 | 8     | -144  |
-|    | tempvar   | t23           | integer                               | 4     | -148  |
-|    | litval_2  | t24           | integer                               | 4     | -152  |
-|    | retval    | t25           | integer                               | 4     | -156  |
-|    | litval_1  | t26           | integer                               | 4     | -160  |
-|    | litval_10 | t27           | integer                               | 4     | -164  |
-|    | tempvar   | t28           | integer                               | 4     | -168  |
-|    | temp_dot  | t29           | float                                 | 8     | -176  |
-|    | retval    | t30           | float                                 | 8     | -184  |
-|    | temp_dot  | t31           | float                                 | 8     | -192  |
-|    | retval    | t32           | float                                 | 8     | -200  |
+|    | local     | a             | null                                  | 0     | -8    |
+|    | local     | c             | C                                     | 4     | -12   |
+|    | local     | f1            | LINEAR                                | 16    | -28   |
+|    | local     | f2            | QUADRATIC                             | 24    | -52   |
+|    | local     | counter       | integer                               | 4     | -56   |
+|    | local     | i             | integer[2][3]                         | 24    | -80   |
+|    | local     | j             | integer[1][2][3]                      | 24    | -104  |
+|    | temp_dot  | t22           | LINEAR                                | 16    | -120  |
+|    | litval_2  | t23           | integer                               | 4     | -124  |
+|    | litval    | t24           | float                                 | 8     | -132  |
+|    | retval    | t25           | LINEAR                                | 16    | -148  |
+|    | temp_dot  | t26           | QUADRATIC                             | 24    | -172  |
+|    | litval    | t27           | float                                 | 8     | -180  |
+|    | litval    | t28           | float                                 | 8     | -188  |
+|    | retval    | t29           | QUADRATIC                             | 24    | -212  |
+|    | litval_1  | t30           | integer                               | 4     | -216  |
+|    | litval_5  | t31           | integer                               | 4     | -220  |
+|    | litval_1  | t32           | integer                               | 4     | -224  |
+|    | litval_1  | t33           | integer                               | 4     | -228  |
+|    | litval_1  | t34           | integer                               | 4     | -232  |
+|    | retval    | t35           | integer                               | 4     | -236  |
+|    | litval    | t36           | float                                 | 8     | -244  |
+|    | litval_1  | t37           | integer                               | 4     | -248  |
+|    | retval    | t38           | integer                               | 4     | -252  |
+|    | litval_2  | t39           | integer                               | 4     | -256  |
+|    | tempvar   | t40           | integer                               | 4     | -260  |
+|    | litval_1  | t41           | integer                               | 4     | -264  |
+|    | litval_2  | t42           | integer                               | 4     | -268  |
+|    | litval    | t43           | float                                 | 8     | -276  |
+|    | tempvar   | t44           | integer                               | 4     | -280  |
+|    | litval_2  | t45           | integer                               | 4     | -284  |
+|    | retval    | t46           | integer                               | 4     | -288  |
+|    | litval_1  | t47           | integer                               | 4     | -292  |
+|    | litval_10 | t48           | integer                               | 4     | -296  |
+|    | tempvar   | t49           | integer                               | 4     | -300  |
+|    | temp_dot  | t50           | float                                 | 8     | -308  |
+|    | retval    | t51           | float                                 | 8     | -316  |
+|    | temp_dot  | t52           | float                                 | 8     | -324  |
+|    | retval    | t53           | float                                 | 8     | -332  |
 |    =====================================================================================
 =====================================================================================

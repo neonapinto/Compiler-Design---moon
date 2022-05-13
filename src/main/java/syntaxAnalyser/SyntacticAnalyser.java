@@ -273,9 +273,8 @@ public class SyntacticAnalyser {
                         parsing_stack.pop();
                         error_set.add(lookahead_token.getLocation());
                     }
-
                 } else {
-                    // scan tokens until we get one with which we can resume the parse
+                    // scan tokens until we get one  with which we can resume the parse
                     if (!error_set.contains(lookahead_token.getLocation())) {
                         writer_err_report.append("[Syntax error] at line: ").append(String.valueOf(lookahead_token.getLocation())).append("\t Unexpected: '").
                                 append(unexpected).append("'\t Expected: '").append(expected).append("'\r\n");

@@ -65,7 +65,7 @@
 [opencubr, {, 68]
 [let, let, 69][id, arr, 69] [colon, :, 69] [integer, integer, 69] [opensqbr, [, 69] [intnum, 7, 69] [closesqbr, ], 69] [semi, ;, 69] [inlinecmt, // 1.1, 69] 
 [id, arr, 70][opensqbr, [, 70] [intnum, 0, 70] [closesqbr, ], 70] [assign, =, 70] [intnum, 64, 70] [semi, ;, 70] [inlinecmt, // 3.1, 70] 
-[id, arr, 71][opensqbr, [, 71] [intnum, 1, 71] [closesqbr, ], 71] [assign, =, 71] [minus, -, 71] [intnum, 34, 71] [semi, ;, 71] [inlinecmt, // 3.1, 71] 
+[id, arr, 71][opensqbr, [, 71] [intnum, 1, 71] [closesqbr, ], 71] [assign, =, 71] [intnum, 34, 71] [semi, ;, 71] [inlinecmt, // 3.1, 71] 
 [id, arr, 72][opensqbr, [, 72] [intnum, 2, 72] [closesqbr, ], 72] [assign, =, 72] [intnum, 25, 72] [semi, ;, 72] [inlinecmt, // 3.1, 72] 
 [id, arr, 73][opensqbr, [, 73] [intnum, 3, 73] [closesqbr, ], 73] [assign, =, 73] [intnum, 12, 73] [semi, ;, 73] [inlinecmt, // 3.1, 73] 
 [id, arr, 74][opensqbr, [, 74] [intnum, 4, 74] [closesqbr, ], 74] [assign, =, 74] [intnum, 22, 74] [semi, ;, 74] [inlinecmt, // 3.1, 74] 

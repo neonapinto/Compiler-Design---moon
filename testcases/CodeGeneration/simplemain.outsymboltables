@@ -4,7 +4,7 @@
 =====================================================================================
 | function  | main          | ():void                                         |
 |    =====================================================================================
-|    | table: main                  scope offset: -180                                   |
+|    | table: main                  scope offset: -88                                    |
 |    =====================================================================================
 |    | local     | x             | integer                               | 4     | -12   |
 |    | local     | y             | integer                               | 4     | -16   |
@@ -26,25 +26,5 @@
 |    | tempvar   | t15           | integer                               | 4     | -80   |
 |    | litval_1  | t16           | integer                               | 4     | -84   |
 |    | tempvar   | t17           | integer                               | 4     | -88   |
-|    | local     | arr           | integer[4]                            | 16    | -104  |
-|    | local     | i             | integer                               | 4     | -108  |
-|    | litval_0  | t18           | integer                               | 4     | -112  |
-|    | litval_1  | t19           | integer                               | 4     | -116  |
-|    | tempvar   | t20           | integer                               | 4     | -120  |
-|    | tempvar   | t21           | integer                               | 4     | -124  |
-|    | litval_3  | t22           | integer                               | 4     | -128  |
-|    | litval_2  | t23           | integer                               | 4     | -132  |
-|    | tempvar   | t24           | integer                               | 4     | -136  |
-|    | tempvar   | t25           | integer                               | 4     | -140  |
-|    | litval_4  | t26           | integer                               | 4     | -144  |
-|    | litval_3  | t27           | integer                               | 4     | -148  |
-|    | tempvar   | t28           | integer                               | 4     | -152  |
-|    | tempvar   | t29           | integer                               | 4     | -156  |
-|    | litval_5  | t30           | integer                               | 4     | -160  |
-|    | litval_4  | t31           | integer                               | 4     | -164  |
-|    | tempvar   | t32           | integer                               | 4     | -168  |
-|    | tempvar   | t33           | integer                               | 4     | -172  |
-|    | litval_1  | t34           | integer                               | 4     | -176  |
-|    | tempvar   | t35           | integer                               | 4     | -180  |
 |    =====================================================================================
 =====================================================================================

@@ -10,13 +10,58 @@
 |    =====================================================================================
 | function  | main          | ():void                                         |
 |    =====================================================================================
-|    | table: main                  scope offset: -32                                    |
+|    | table: main                  scope offset: -276                                   |
 |    =====================================================================================
 |    | local     | a             | integer                               | 4     | -12   |
 |    | local     | b             | integer                               | 4     | -16   |
-|    | local     | res           | integer                               | 4     | -20   |
-|    | litval_4  | t1            | integer                               | 4     | -24   |
-|    | litval_6  | t2            | integer                               | 4     | -28   |
-|    | tempvar   | t3            | integer                               | 4     | -32   |
+|    | local     | c             | integer                               | 4     | -20   |
+|    | local     | res           | integer                               | 4     | -24   |
+|    | litval_4  | t1            | integer                               | 4     | -28   |
+|    | litval_6  | t2            | integer                               | 4     | -32   |
+|    | tempvar   | t3            | integer                               | 4     | -36   |
+|    | local     | float_arr     | float[4]                              | 32    | -68   |
+|    | litval_0  | t4            | integer                               | 4     | -72   |
+|    | tempvar   | t5            | float                                 | 8     | -80   |
+|    | litval    | t6            | float                                 | 8     | -88   |
+|    | litval_1  | t7            | integer                               | 4     | -92   |
+|    | tempvar   | t8            | float                                 | 8     | -100  |
+|    | litval    | t9            | float                                 | 8     | -108  |
+|    | litval_2  | t10           | integer                               | 4     | -112  |
+|    | tempvar   | t11           | float                                 | 8     | -120  |
+|    | litval    | t12           | float                                 | 8     | -128  |
+|    | local     | arr           | integer[4]                            | 16    | -144  |
+|    | local     | i             | integer                               | 4     | -148  |
+|    | litval_0  | t13           | integer                               | 4     | -152  |
+|    | litval_1  | t14           | integer                               | 4     | -156  |
+|    | tempvar   | t15           | integer                               | 4     | -160  |
+|    | tempvar   | t16           | integer                               | 4     | -164  |
+|    | litval_3  | t17           | integer                               | 4     | -168  |
+|    | litval_2  | t18           | integer                               | 4     | -172  |
+|    | tempvar   | t19           | integer                               | 4     | -176  |
+|    | tempvar   | t20           | integer                               | 4     | -180  |
+|    | litval_4  | t21           | integer                               | 4     | -184  |
+|    | litval_3  | t22           | integer                               | 4     | -188  |
+|    | tempvar   | t23           | integer                               | 4     | -192  |
+|    | tempvar   | t24           | integer                               | 4     | -196  |
+|    | litval_5  | t25           | integer                               | 4     | -200  |
+|    | litval_4  | t26           | integer                               | 4     | -204  |
+|    | tempvar   | t27           | integer                               | 4     | -208  |
+|    | tempvar   | t28           | integer                               | 4     | -212  |
+|    | litval_1  | t29           | integer                               | 4     | -216  |
+|    | tempvar   | t30           | integer                               | 4     | -220  |
+|    | local     | result        | integer                               | 4     | -224  |
+|    | litval_2  | t31           | integer                               | 4     | -228  |
+|    | litval_1  | t32           | integer                               | 4     | -232  |
+|    | tempvar   | t33           | integer                               | 4     | -236  |
+|    | tempvar   | t34           | integer                               | 4     | -240  |
+|    | tempvar   | t35           | integer                               | 4     | -244  |
+|    | litval_5  | t36           | integer                               | 4     | -248  |
+|    | tempvar   | t37           | integer                               | 4     | -252  |
+|    | tempvar   | t38           | integer                               | 4     | -256  |
+|    | litval_10 | t39           | integer                               | 4     | -260  |
+|    | tempvar   | t40           | integer                               | 4     | -264  |
+|    | tempvar   | t41           | integer                               | 4     | -268  |
+|    | tempvar   | t42           | integer                               | 4     | -272  |
+|    | tempvar   | t43           | integer                               | 4     | -276  |
 |    =====================================================================================
 =====================================================================================

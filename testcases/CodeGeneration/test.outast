@@ -1,95 +1,437 @@
 ============================================================================================================================
 Node type                                                                   | data                | line      | subtreestring
 ============================================================================================================================
-AST.ProgNode                                                                |                     |                       
-  AST.FuncDefNode                                                           |                     |                       
-    AST.IdNode                                                              | printArray          | 1                     
-    AST.FParamListNode                                                      |                     |                       
-      AST.FParamNode                                                        |                     |                       
-        AST.IdNode                                                          | res                 | 1                     
-        AST.TypeNode                                                        | integer             | 1                     
-        AST.DimListNode                                                     |                     |                       
-    AST.TypeNode                                                            | void                | 1                     
-    AST.FuncBodyNode                                                        |                     |                       
-      AST.StatBlockNode                                                     |                     |                       
-        AST.WriteStatNode                                                   |                     |                       
-          AST.ExprNode                                                      |                     |                       
-            AST.ArithExprNode                                               |                     |                       
-              AST.TermNode                                                  |                     |                       
-                AST.FactorNode                                              |                     |                       
-                  AST.FuncOrVarNode                                         |                     |                       
-                    AST.DataMemNode                                         |                     |                       
-                      AST.IdNode                                            | res                 | 3                     
-                      AST.IndiceNode                                        |                     |                       
-  AST.FuncDefNode                                                           |                     |                       
-    AST.IdNode                                                              | main                | 7                     
-    AST.FParamListNode                                                      |                     |                       
-    AST.TypeNode                                                            | void                | 7                     
-    AST.FuncBodyNode                                                        |                     |                       
-      AST.StatBlockNode                                                     |                     |                       
-        AST.VarDeclNode                                                     |                     |                       
-          AST.IdNode                                                        | a                   | 9                     
-          AST.TypeNode                                                      | integer             | 9                     
-          AST.DimListNode                                                   |                     |                       
-        AST.VarDeclNode                                                     |                     |                       
-          AST.IdNode                                                        | b                   | 10                    
-          AST.TypeNode                                                      | integer             | 10                    
-          AST.DimListNode                                                   |                     |                       
-        AST.VarDeclNode                                                     |                     |                       
-          AST.IdNode                                                        | res                 | 11                    
-          AST.TypeNode                                                      | integer             | 11                    
-          AST.DimListNode                                                   |                     |                       
-        AST.AssignStatNode                                                  | =                   |                       
-          AST.VariableNode                                                  |                     |                       
-            AST.DataMemNode                                                 |                     |                       
-              AST.IdNode                                                    | a                   | 12                    
-              AST.IndiceNode                                                |                     |                       
-          AST.ExprNode                                                      |                     |                       
-            AST.ArithExprNode                                               |                     |                       
-              AST.TermNode                                                  |                     |                       
-                AST.FactorNode                                              |                     |                       
-                  AST.NumNode                                               | 4                   | 12                    
-        AST.AssignStatNode                                                  | =                   |                       
-          AST.VariableNode                                                  |                     |                       
-            AST.DataMemNode                                                 |                     |                       
-              AST.IdNode                                                    | b                   | 13                    
-              AST.IndiceNode                                                |                     |                       
-          AST.ExprNode                                                      |                     |                       
-            AST.ArithExprNode                                               |                     |                       
-              AST.TermNode                                                  |                     |                       
-                AST.FactorNode                                              |                     |                       
-                  AST.NumNode                                               | 6                   | 13                    
-        AST.AssignStatNode                                                  | =                   |                       
-          AST.VariableNode                                                  |                     |                       
-            AST.DataMemNode                                                 |                     |                       
-              AST.IdNode                                                    | res                 | 14                    
-              AST.IndiceNode                                                |                     |                       
-          AST.ExprNode                                                      |                     |                       
-            AST.ArithExprNode                                               |                     |                       
-              AST.AddOpNode                                                 | +                   | 14                    
-                AST.ArithExprNode                                           |                     |                       
-                  AST.TermNode                                              |                     |                       
-                    AST.FactorNode                                          |                     |                       
-                      AST.FuncOrVarNode                                     |                     |                       
-                        AST.DataMemNode                                     |                     |                       
-                          AST.IdNode                                        | a                   | 14                    
-                          AST.IndiceNode                                    |                     |                       
-                AST.TermNode                                                |                     |                       
-                  AST.FactorNode                                            |                     |                       
-                    AST.FuncOrVarNode                                       |                     |                       
-                      AST.DataMemNode                                       |                     |                       
-                        AST.IdNode                                          | b                   | 14                    
-                        AST.IndiceNode                                      |                     |                       
-        AST.FuncCallStatNode                                                |                     |                       
-          AST.FuncCallNode                                                  |                     |                       
-            AST.IdNode                                                      | printArray          | 15                    
-            AST.AParamsNode                                                 |                     |                       
-              AST.ExprNode                                                  |                     |                       
-                AST.ArithExprNode                                           |                     |                       
-                  AST.TermNode                                              |                     |                       
-                    AST.FactorNode                                          |                     |                       
-                      AST.FuncOrVarNode                                     |                     |                       
-                        AST.DataMemNode                                     |                     |                       
-                          AST.IdNode                                        | res                 | 15                    
-                          AST.IndiceNode                                    |                     |                       
+ProgNode                                                                    |                     |                       
+  FuncDefNode                                                               |                     |                       
+    IdNode                                                                  | printArray          | 25                    
+    FParamListNode                                                          |                     |                       
+      FParamNode                                                            |                     |                       
+        IdNode                                                              | res                 | 25                    
+        TypeNode                                                            | integer             | 25                    
+        DimListNode                                                         |                     |                       
+    TypeNode                                                                | void                | 25                    
+    FuncBodyNode                                                            |                     |                       
+      StatBlockNode                                                         |                     |                       
+        WriteStatNode                                                       |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  FuncOrVarNode                                             |                     |                       
+                    DataMemNode                                             |                     |                       
+                      IdNode                                                | res                 | 27                    
+                      IndiceNode                                            |                     |                       
+  FuncDefNode                                                               |                     |                       
+    IdNode                                                                  | main                | 31                    
+    FParamListNode                                                          |                     |                       
+    TypeNode                                                                | void                | 31                    
+    FuncBodyNode                                                            |                     |                       
+      StatBlockNode                                                         |                     |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | a                   | 33                    
+          TypeNode                                                          | integer             | 33                    
+          DimListNode                                                       |                     |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | b                   | 34                    
+          TypeNode                                                          | integer             | 34                    
+          DimListNode                                                       |                     |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | c                   | 35                    
+          TypeNode                                                          | integer             | 35                    
+          DimListNode                                                       |                     |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | res                 | 36                    
+          TypeNode                                                          | integer             | 36                    
+          DimListNode                                                       |                     |                       
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | a                   | 37                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 4                   | 37                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | b                   | 38                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 6                   | 38                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | res                 | 39                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              AddOpNode                                                     | +                   | 39                    
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      FuncOrVarNode                                         |                     |                       
+                        DataMemNode                                         |                     |                       
+                          IdNode                                            | a                   | 39                    
+                          IndiceNode                                        |                     |                       
+                TermNode                                                    |                     |                       
+                  FactorNode                                                |                     |                       
+                    FuncOrVarNode                                           |                     |                       
+                      DataMemNode                                           |                     |                       
+                        IdNode                                              | b                   | 39                    
+                        IndiceNode                                          |                     |                       
+        FuncCallStatNode                                                    |                     |                       
+          FuncCallNode                                                      |                     |                       
+            IdNode                                                          | printArray          | 40                    
+            AParamsNode                                                     |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      FuncOrVarNode                                         |                     |                       
+                        DataMemNode                                         |                     |                       
+                          IdNode                                            | res                 | 40                    
+                          IndiceNode                                        |                     |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | float_arr           | 42                    
+          TypeNode                                                          | float               | 42                    
+          DimListNode                                                       |                     |                       
+            DimNode                                                         | [4]                 |                       
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | float_arr           | 43                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        NumNode                                             | 0                   | 43                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  FloatNode                                                 | 10.0                | 43                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | float_arr           | 44                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        NumNode                                             | 1                   | 44                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  FloatNode                                                 | 11.0                | 44                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | float_arr           | 45                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        NumNode                                             | 2                   | 45                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  FloatNode                                                 | 12.0                | 45                    
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | arr                 | 47                    
+          TypeNode                                                          | integer             | 47                    
+          DimListNode                                                       |                     |                       
+            DimNode                                                         | [4]                 |                       
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | i                   | 48                    
+          TypeNode                                                          | integer             | 48                    
+          DimListNode                                                       |                     |                       
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | i                   | 49                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 0                   | 49                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | arr                 | 50                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    AddOpNode                                               | +                   | 50                    
+                      ArithExprNode                                         |                     |                       
+                        TermNode                                            |                     |                       
+                          FactorNode                                        |                     |                       
+                            FuncOrVarNode                                   |                     |                       
+                              DataMemNode                                   |                     |                       
+                                IdNode                                      | i                   | 50                    
+                                IndiceNode                                  |                     |                       
+                      TermNode                                              |                     |                       
+                        FactorNode                                          |                     |                       
+                          NumNode                                           | 1                   | 50                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 3                   | 50                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | arr                 | 51                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    AddOpNode                                               | +                   | 51                    
+                      ArithExprNode                                         |                     |                       
+                        TermNode                                            |                     |                       
+                          FactorNode                                        |                     |                       
+                            FuncOrVarNode                                   |                     |                       
+                              DataMemNode                                   |                     |                       
+                                IdNode                                      | i                   | 51                    
+                                IndiceNode                                  |                     |                       
+                      TermNode                                              |                     |                       
+                        FactorNode                                          |                     |                       
+                          NumNode                                           | 2                   | 51                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 4                   | 51                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | arr                 | 52                    
+              IndiceNode                                                    |                     |                       
+                ExprNode                                                    |                     |                       
+                  ArithExprNode                                             |                     |                       
+                    AddOpNode                                               | +                   | 52                    
+                      ArithExprNode                                         |                     |                       
+                        TermNode                                            |                     |                       
+                          FactorNode                                        |                     |                       
+                            FuncOrVarNode                                   |                     |                       
+                              DataMemNode                                   |                     |                       
+                                IdNode                                      | i                   | 52                    
+                                IndiceNode                                  |                     |                       
+                      TermNode                                              |                     |                       
+                        FactorNode                                          |                     |                       
+                          NumNode                                           | 3                   | 52                    
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 5                   | 52                    
+        WhileStatNode                                                       |                     |                       
+          ExprNode                                                          |                     |                       
+            RelExprNode                                                     |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      FuncOrVarNode                                         |                     |                       
+                        DataMemNode                                         |                     |                       
+                          IdNode                                            | i                   | 53                    
+                          IndiceNode                                        |                     |                       
+              RelOpNode                                                     | <                   | 53                    
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      NumNode                                               | 4                   | 53                    
+          StatBlockNode                                                     |                     |                       
+            WriteStatNode                                                   |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      FuncOrVarNode                                         |                     |                       
+                        DataMemNode                                         |                     |                       
+                          IdNode                                            | arr                 | 54                    
+                          IndiceNode                                        |                     |                       
+                            ExprNode                                        |                     |                       
+                              ArithExprNode                                 |                     |                       
+                                TermNode                                    |                     |                       
+                                  FactorNode                                |                     |                       
+                                    FuncOrVarNode                           |                     |                       
+                                      DataMemNode                           |                     |                       
+                                        IdNode                              | i                   | 54                    
+                                        IndiceNode                          |                     |                       
+            AssignStatNode                                                  | =                   |                       
+              VariableNode                                                  |                     |                       
+                DataMemNode                                                 |                     |                       
+                  IdNode                                                    | i                   | 55                    
+                  IndiceNode                                                |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  AddOpNode                                                 | +                   | 55                    
+                    ArithExprNode                                           |                     |                       
+                      TermNode                                              |                     |                       
+                        FactorNode                                          |                     |                       
+                          FuncOrVarNode                                     |                     |                       
+                            DataMemNode                                     |                     |                       
+                              IdNode                                        | i                   | 55                    
+                              IndiceNode                                    |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        NumNode                                             | 1                   | 55                    
+        VarDeclNode                                                         |                     |                       
+          IdNode                                                            | result              | 58                    
+          TypeNode                                                          | integer             | 58                    
+          DimListNode                                                       |                     |                       
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | result              | 59                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 2                   | 59                    
+        AssignStatNode                                                      | =                   |                       
+          VariableNode                                                      |                     |                       
+            DataMemNode                                                     |                     |                       
+              IdNode                                                        | c                   | 60                    
+              IndiceNode                                                    |                     |                       
+          ExprNode                                                          |                     |                       
+            ArithExprNode                                                   |                     |                       
+              TermNode                                                      |                     |                       
+                FactorNode                                                  |                     |                       
+                  NumNode                                                   | 1                   | 60                    
+        IfStatNode                                                          |                     |                       
+          ExprNode                                                          |                     |                       
+            RelExprNode                                                     |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  AddOpNode                                                 | +                   | 61                    
+                    ArithExprNode                                           |                     |                       
+                      AddOpNode                                             | -                   | 61                    
+                        ArithExprNode                                       |                     |                       
+                          TermNode                                          |                     |                       
+                            MultOpNode                                      | *                   | 61                    
+                              TermNode                                      |                     |                       
+                                FactorNode                                  |                     |                       
+                                  ExprNode                                  |                     |                       
+                                    ArithExprNode                           |                     |                       
+                                      TermNode                              |                     |                       
+                                        FactorNode                          |                     |                       
+                                          FuncOrVarNode                     |                     |                       
+                                            DataMemNode                     |                     |                       
+                                              IdNode                        | a                   | 61                    
+                                              IndiceNode                    |                     |                       
+                              FactorNode                                    |                     |                       
+                                ExprNode                                    |                     |                       
+                                  ArithExprNode                             |                     |                       
+                                    TermNode                                |                     |                       
+                                      FactorNode                            |                     |                       
+                                        FuncOrVarNode                       |                     |                       
+                                          DataMemNode                       |                     |                       
+                                            IdNode                          | b                   | 61                    
+                                            IndiceNode                      |                     |                       
+                        TermNode                                            |                     |                       
+                          FactorNode                                        |                     |                       
+                            ExprNode                                        |                     |                       
+                              ArithExprNode                                 |                     |                       
+                                TermNode                                    |                     |                       
+                                  FactorNode                                |                     |                       
+                                    FuncOrVarNode                           |                     |                       
+                                      DataMemNode                           |                     |                       
+                                        IdNode                              | a                   | 61                    
+                                        IndiceNode                          |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        ExprNode                                            |                     |                       
+                          ArithExprNode                                     |                     |                       
+                            TermNode                                        |                     |                       
+                              FactorNode                                    |                     |                       
+                                NotNode                                     |                     |                       
+                                  FactorNode                                |                     |                       
+                                    FuncOrVarNode                           |                     |                       
+                                      DataMemNode                           |                     |                       
+                                        IdNode                              | c                   | 61                    
+                                        IndiceNode                          |                     |                       
+              RelOpNode                                                     | <                   | 61                    
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  TermNode                                                  |                     |                       
+                    FactorNode                                              |                     |                       
+                      NumNode                                               | 5                   | 61                    
+          StatBlockNode                                                     |                     |                       
+            WriteStatNode                                                   |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  AddOpNode                                                 | +                   | 63                    
+                    ArithExprNode                                           |                     |                       
+                      TermNode                                              |                     |                       
+                        MultOpNode                                          | *                   | 63                    
+                          TermNode                                          |                     |                       
+                            FactorNode                                      |                     |                       
+                              FuncOrVarNode                                 |                     |                       
+                                DataMemNode                                 |                     |                       
+                                  IdNode                                    | a                   | 63                    
+                                  IndiceNode                                |                     |                       
+                          FactorNode                                        |                     |                       
+                            FuncOrVarNode                                   |                     |                       
+                              DataMemNode                                   |                     |                       
+                                IdNode                                      | b                   | 63                    
+                                IndiceNode                                  |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        NumNode                                             | 10                  | 63                    
+          StatBlockNode                                                     |                     |                       
+            WriteStatNode                                                   |                     |                       
+              ExprNode                                                      |                     |                       
+                ArithExprNode                                               |                     |                       
+                  AddOpNode                                                 | +                   | 66                    
+                    ArithExprNode                                           |                     |                       
+                      AddOpNode                                             | -                   | 66                    
+                        ArithExprNode                                       |                     |                       
+                          TermNode                                          |                     |                       
+                            MultOpNode                                      | *                   | 66                    
+                              TermNode                                      |                     |                       
+                                FactorNode                                  |                     |                       
+                                  FuncOrVarNode                             |                     |                       
+                                    DataMemNode                             |                     |                       
+                                      IdNode                                | a                   | 66                    
+                                      IndiceNode                            |                     |                       
+                              FactorNode                                    |                     |                       
+                                FuncOrVarNode                               |                     |                       
+                                  DataMemNode                               |                     |                       
+                                    IdNode                                  | b                   | 66                    
+                                    IndiceNode                              |                     |                       
+                        TermNode                                            |                     |                       
+                          FactorNode                                        |                     |                       
+                            ExprNode                                        |                     |                       
+                              ArithExprNode                                 |                     |                       
+                                TermNode                                    |                     |                       
+                                  FactorNode                                |                     |                       
+                                    FuncOrVarNode                           |                     |                       
+                                      DataMemNode                           |                     |                       
+                                        IdNode                              | a                   | 66                    
+                                        IndiceNode                          |                     |                       
+                    TermNode                                                |                     |                       
+                      FactorNode                                            |                     |                       
+                        ExprNode                                            |                     |                       
+                          ArithExprNode                                     |                     |                       
+                            TermNode                                        |                     |                       
+                              FactorNode                                    |                     |                       
+                                NotNode                                     |                     |                       
+                                  FactorNode                                |                     |                       
+                                    FuncOrVarNode                           |                     |                       
+                                      DataMemNode                           |                     |                       
+                                        IdNode                              | c                   | 66                    
+                                        IndiceNode                          |                     |                       
 ============================================================================================================================

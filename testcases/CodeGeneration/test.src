@@ -1,3 +1,27 @@
+// Assignment 5 coverage:
+//      -------------
+//      | YES | NO  |
+//      -------------
+// 1.1: |  X  |     |
+// 1.2: |     |  X  |
+// 1.3: |     |  X  |
+// 1.4: |     |  X  |
+// 2.1: |  X  |     |
+// 2.2: |  X  |     |
+// 2.3: |     |  X  |
+// 2.4: |     |  X  |
+// 3.1: |  X  |     |
+// 3.2: |  X  |     |
+// 3.3: |  X  |     |
+// 3.4: |  X  |     |
+// 4.1  |  X  |     |
+// 4.2: |     |  X  |
+// 4.3: |     |  X  |
+// 4.4: |     |  X  |
+// 5.1: |  X  |     |
+// 5.2: |  X  |    |
+// 5.3: |     |  X  |
+//      -------------
 func printArray(res: integer) -> void   // 2.1, 2.2
 {
   write(res);
@@ -8,9 +32,33 @@ func main() -> void
 {
   let a: integer;                                   // 1.1
   let b: integer;
+  let c: integer;
   let res: integer;
   a = 4;                                           // 3.1
   b = 6;                                           // 3.1
   res = a + b;                                           // 3.1
   printArray(res);                                    // 2.1, 2.2
+
+  let arr: integer[4];
+  let i : integer;
+  i = 0;
+  arr[i + 1] = 3;                                // 5.2
+  arr[i + 2] = 4;                                //4.1
+  arr[i + 3] = 5;
+  while(i<4) {                                   // 3.3, 5.1
+     write(arr[i]);                                      // 3.4
+     i = i + 1;                                    // 3.1
+    };
+
+  let result : integer;
+  result = 2;
+  c = 1;
+  if((a)*(b)-(a)+(!c) < 5)
+  then{
+    write (a * b + 10);
+  }
+  else{
+    write ( a * b -(a) + (!c) );
+  };
+
 }

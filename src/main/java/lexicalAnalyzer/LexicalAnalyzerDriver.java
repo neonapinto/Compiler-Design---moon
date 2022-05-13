@@ -4,7 +4,7 @@ import java.io.File;
 
 public class LexicalAnalyzerDriver {
     public static void main(String[] args) {
-        final String path = "testcases/LexicalAnalyserTest/";
+        final String path = "testcases/LexicalAnalyserTest/lexnegativegrading.src";
         File f = new File(path);
         if (f.isDirectory()) {
             File[] files = f.listFiles(((dir, name) -> name.endsWith(".src")));

@@ -16,6 +16,7 @@
 [10.1][semantic error][line:79] Type error in MultOpNode:  (float) and (integer)
 [10.2][semantic error][line:81] Type error in assignment statement:  new_function.c(float) and 1(integer)
 [10.3][semantic error][line:82] Type error in return statement:  1(integer) and QUADRATIC::build(QUADRATIC)
+[11.5][semantic error][line:104] Use of undeclared struct class:  'b'
 [12.2][semantic error][line:112] Function call with wrong type of parameters:  'f1.build(2, 3.5)'
 [11.2][semantic error][line:114] Undeclared data member:  'c.b'
 [11.3][semantic error][line:116] Undeclared member function:  'f'

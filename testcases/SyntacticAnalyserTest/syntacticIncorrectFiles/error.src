@@ -14,12 +14,17 @@ func evaluate(result : float) -> float
   result = a;
   result = result * x + b  //no semicolon
   result = result * x + c;
-  return (result[]);                                    // return type: array (not allowed)
+}
+
+function main(){
+
 }
 
 /*
     functions: definitions
     --------------------------------------
-|X| return type: array (not allowed)
+|X| no visibility
+|X| definition is incorrect
+|X| no semicolon
 
 */

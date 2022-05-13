@@ -388,10 +388,7 @@ public class TypeCheckingVisitor extends Visitor {
             if (entry.m_name != null) {
                 p_node.m_type = entry.m_type;
             } else {
-
-
                 if (p_node.getParent().m_sa_name.equals("DataMem_s") && p_node.getParent().getParent().m_sa_name.equals("FuncOrVar_s")) {
-
                     this.m_errors += "[11.1][semantic error][line:" + p_node.m_line + "] Undeclared local variable:  '" + p_node.m_data + "'\n";
                     error_set.add(p_node.m_line);
                 }
@@ -440,8 +437,6 @@ public class TypeCheckingVisitor extends Visitor {
                 // assign type to the right of dot operator for code generation(need to know the type of the class)
                 p_node.getChildren().get(1).m_type = var_or_func_type;
                 p_node.getChildren().get(1).m_symTabEntry = func_var_entry;
-//                System.out.println("var of func type: "+ var_or_func_type);
-
             } // function or variable is not declared in the struct class
 
 
@@ -554,7 +549,6 @@ public class TypeCheckingVisitor extends Visitor {
             }
         } else {
             if (p_node.getChildren().get(0).m_sa_name.equals("DataMem_s")) {
-
 
             } else {
                 if (p_node.getChildren().get(0).m_sa_name.equals("Dot_s")) {

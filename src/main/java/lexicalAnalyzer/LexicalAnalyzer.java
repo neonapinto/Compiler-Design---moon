@@ -1,30 +1,35 @@
 package lexicalAnalyzer;
+import lexicalAnalyzer.State;
 
 import java.io.*;
 
+/**
+ * Class that implements the lexical analyzer
+ */
 public class LexicalAnalyzer {
-    private static State[] transition_table;    // an array storing states
-    private BufferedReader reader;
-    private PrintWriter writer_tok;
-    private PrintWriter writer_err;
-    private StringWriter string_err;
-    private PrintWriter writer_string_err;
-    public String lexical_errors;
-    private Token curr_token;           // token object storing info
-    private StringBuilder curr_lexeme;  // records the lexeme for the current token
-    private int curr_line;              // records the current line
-    private int out_line;               // for printing token file
-    private Character backup_char;      // back up the current char in case of backtrace
-    private boolean is_finished;        // end of file
-    private int num_nested_cmt;         // for nested comments
+
+    private static State[] transition_table;
+    private BufferedReader bf;
+    private PrintWriter pw_tok;
+    private int output_line;
+    private Character backup_char;
+    private PrintWriter pw_err;
+    private StringWriter sw_err;
+    private PrintWriter pwriter_err;
+    private boolean is_finished;
+    private int nested_cmt;
+    private StringBuilder curr_lexeme;
+    private int curr_line;
+    public String lex_errors;
+    private Token curr_token;
 
     public LexicalAnalyzer() {
         curr_line = 1;
-        out_line = 1;
+        output_line = 1;
         is_finished = false;
-        num_nested_cmt = 0;
-        string_err = new StringWriter();
-        writer_string_err = new PrintWriter(string_err);
+        nested_cmt = 0;
+        sw_err = new StringWriter();
+        pwriter_err = new PrintWriter(sw_err);
     }
 
     public boolean isFinished() {
@@ -36,17 +41,18 @@ public class LexicalAnalyzer {
      * @param file_path the path of .src files
      */
     public void fileSetup(String file_path) {
+
         try {
             File file_read = new File(file_path);
             System.out.println("Reading the file: " + file_read.getName());
-            reader = new BufferedReader(new FileReader(file_path));
+            bf = new BufferedReader(new FileReader(file_path));
             String file_path_temp = file_path.substring(0, file_path.length() - 4);
             File outfile_tok = new File(file_path_temp + ".outlextokens");
             File outfile_err = new File(file_path_temp + ".outlexerrors");
             System.out.println("Writing to the file: " + outfile_tok.getName());
             System.out.println("Writing to the file: " + outfile_err.getName());
-            writer_tok = new PrintWriter(outfile_tok);
-            writer_err = new PrintWriter(outfile_err);
+            pw_tok = new PrintWriter(outfile_tok);
+            pw_err = new PrintWriter(outfile_err);
 
         }catch (FileNotFoundException e){
             System.err.println("Folder or file does not exist. ");
@@ -57,35 +63,45 @@ public class LexicalAnalyzer {
         }
     }
 
+
+
     /**
      * flush contents to files and close files
      */
     public void closeFiles() {
-        System.out.println("Flushing & closing files.");
         try {
-            reader.close();
-            writer_tok.flush();
-            writer_tok.close();
-            writer_err.flush();
-            writer_err.close();
-            lexical_errors = string_err.toString();
+            bf.close();
+            pw_tok.flush();
+            pw_tok.close();
+            pw_err.flush();
+            pw_err.close();
+            lex_errors = sw_err.toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void addTransitions(int state, int[] next_state) {
+    /**
+     * method to add tranistion to the table
+     */
+    private void add_transitions(int state, int[] next_state) {
         char[] column_char = {'L', 'e', '0', 'N', '_', '/', '*', '=', '<', '>', ':', '+', '-', '&', '.', ' ', '\n', '\r', '~', '\u0000'};
         for (int i = 0; i < 20; i++) {
             transition_table[state].add_transition(column_char[i], next_state[i]);
         }
     }
 
+    /**
+     * method to set state as not final in the table
+     */
     private void setNonFinalState(int index, int[] next_state) {
         transition_table[index] = new State(index);
-        addTransitions(index, next_state);
+        add_transitions(index, next_state);
     }
 
+    /**
+     * method to set the state as final in the table
+     */
     private void setFinalState(int index, String final_state_name, boolean backtrack) {
         transition_table[index] = new State(index, true, final_state_name, backtrack);
 
@@ -99,9 +115,9 @@ public class LexicalAnalyzer {
         transition_table = new State[50];
         setFinalState(0, "invalidchar", false);
         int[] next_state;
-        next_state = new int[]{2, 2, 6, 8, 4 , 26, 46, 33, 36, 40, 43, 46, 23 , 46, 46, 1, 1, 1, 0, 1};
+        next_state = new int[]{2, 2, 6, 8, 4, 26, 46, 33, 36, 40, 43, 46, 21, 46, 46, 1, 1, 1, 0, 1};
         setNonFinalState(1, next_state);
-        next_state = new int[]{2, 2, 2, 2, 2 , 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 3};
+        next_state = new int[]{2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 3};
         setNonFinalState(2, next_state);
         setFinalState(3, "id", true);
         next_state = new int[]{4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5};
@@ -130,16 +146,16 @@ public class LexicalAnalyzer {
         setNonFinalState(18, next_state);
         next_state = new int[]{10, 10, 20, 22, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 0, 10};
         setNonFinalState(19, next_state);
-        next_state = new int[]{10, 10, 21, 21, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 0, 17};
+        next_state = new int[]{10, 10, 25, 25, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 0, 17};
         setNonFinalState(20, next_state);
-        next_state = new int[]{10, 10, 21, 21, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+        next_state = new int[]{24, 24, 24, 24, 24, 24, 24, 24, 24, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24};
         setNonFinalState(21, next_state);
         next_state = new int[]{10, 10, 22, 22, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 0, 17};
         setNonFinalState(22, next_state);
-        next_state = new int[]{25, 25, 25, 25, 25, 25, 25, 25, 25, 24, 25, 25, 25, 25, 25, 25, 25, 25, 0, 25};
-        setNonFinalState(23, next_state);
-        setFinalState(24, "arrow", false);
-        setFinalState(25, "minus", true);
+        setFinalState(23, "arrow", false);
+        setFinalState(24, "minus", true);
+        next_state = new int[]{10, 10, 25, 25, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+        setNonFinalState(25, next_state);
         next_state = new int[]{29, 29, 29, 29, 29, 27, 30, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0, 29};
         setNonFinalState(26, next_state);
         next_state = new int[]{27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 28, 27, 28};
@@ -177,6 +193,7 @@ public class LexicalAnalyzer {
         setNonFinalState(49, next_state);
     }
 
+
     /**
      * Called by syntactic analyzer
      *
@@ -192,7 +209,6 @@ public class LexicalAnalyzer {
                 is_finished = true;
                 break;
             }
-
             char lookup_char = nextChar();      // read next character
             char input_char = initialToInput(lookup_char);      // mapping to characters in the transition table
             curr_state = lookupTable(curr_state, input_char);   // look up the next state
@@ -216,24 +232,23 @@ public class LexicalAnalyzer {
 
             if (lookup_char == 65535) {                      // when reach the end of file
                 will_finish = true;
-                writer_tok.write("\r\n");
+                pw_tok.write("\r\n");
             }
         } while (curr_token == null);
         return curr_token;
     }
 
     /**
-     * Dealing with nested comments
      * @param current state
      * @return the state after dealing with nested block comments case
      */
     private int nestedComments(int current) {
         if (current == 30) {
-            num_nested_cmt++;
+            nested_cmt++;
         }
         if (current == 48) {
-            num_nested_cmt--;
-            if (num_nested_cmt == 0) {
+            nested_cmt--;
+            if (nested_cmt == 0) {
                 return 32;
             }
         }
@@ -244,34 +259,35 @@ public class LexicalAnalyzer {
      * write the info to output buffers
      */
     public void writeToBuffers() {
-        if (out_line == curr_line) {
-            writer_tok.append(curr_token.toString());
-            writer_tok.append(" ");
+
+        if (output_line == curr_line) {
+            pw_tok.append(curr_token.toString());
+            pw_tok.append(" ");
 
         } else {
-            writer_tok.append("\r\n");
-            writer_tok.append(curr_token.toString());
-            out_line = curr_line;
+            pw_tok.append("\r\n");
+            pw_tok.append(curr_token.toString());
+            output_line = curr_line;
         }
 
         if (curr_token.isError()) {
             switch (curr_token.getType()) {
                 case "invalidchar":
-                    writer_err.append("Lexical error: Invalid character: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
-                    writer_string_err.append("Lexical error: Invalid character: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pw_err.append("Lexical error: Invalid character: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pwriter_err.append("Lexical error: Invalid character: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
                 case "invalidnum":
-                    writer_err.append("Lexical error: Invalid number: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
-                    writer_string_err.append("Lexical error: Invalid number: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pw_err.append("Lexical error: Invalid number: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pwriter_err.append("Lexical error: Invalid number: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
                 case "invalidid":
-                    writer_err.append("Lexical error: Invalid identifier: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
-                    writer_string_err.append("Lexical error: Invalid identifier: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pw_err.append("Lexical error: Invalid identifier: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pwriter_err.append("Lexical error: Invalid identifier: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
                 case "invalidcmt":
-                    num_nested_cmt = 0;
-                    writer_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
-                    writer_string_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    nested_cmt = 0;
+                    pw_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
+                    pwriter_err.append("Lexical error: Unclosed comments: \"").append(curr_token.getLexeme()).append("\": line ").append(String.valueOf(curr_token.getLocation())).append(".\n");
                     break;
             }
         }
@@ -285,7 +301,7 @@ public class LexicalAnalyzer {
             if (backup_char != null) {
                 return backup_char;
             }
-            int lookup = reader.read();
+            int lookup = bf.read();
             return (char) lookup;
         } catch (IOException e) {
             e.printStackTrace();
@@ -326,13 +342,14 @@ public class LexicalAnalyzer {
     /**
      * @param state the current state
      * @return Returns the value corresponding to [state,column] in the state transition table.
-     * @Param column corresponding to input character in the transition table
+     *
      */
     public Integer lookupTable(int state, char column) {
         // reduce transitions in final state since they all go to state 1
         if (transition_table[state].isFinalState()) {
             return 1;
         }
+
         Integer next = transition_table[state].getTransitions().get(column);
         if (next != null) {
             return next;
@@ -341,19 +358,17 @@ public class LexicalAnalyzer {
     }
 
     /**
-     * Creates and returns a structure that contains the token type, its location in the source code,
-     * and its value (for literals), for the token kind corresponding to a state,
-     * as found in the state transition table.
+     * Creates and returns a structure that contains the token type
      *
      * @param state that represents a token
      * @return a Token object for writing to buffers
      */
     public Token createToken(int state) {
-        int token_line = curr_line;   // record the line of the current token
+
+        int token_line = curr_line;
         String type = transition_table[state].getState_name();
         String lexeme = curr_lexeme.toString().trim();
 
-        // deal with operator
         if (type.equals("symbol")) {
             switch (lexeme) {
                 case "+":
@@ -401,13 +416,13 @@ public class LexicalAnalyzer {
             }
         }
 
-        // checking for the reserved word if the type is ID
+        // reserved word
         if (type.equals("id")) {
             if (lexeme.equals("if") | lexeme.equals("then") | lexeme.equals("else") | lexeme.equals("integer")
                     | lexeme.equals("float") | lexeme.equals("void") | lexeme.equals("public")
-                    | lexeme.equals("private") | lexeme.equals("func")  | lexeme.equals("struct")
+                    | lexeme.equals("private") | lexeme.equals("func") | lexeme.equals("var") | lexeme.equals("struct")
                     | lexeme.equals("while") | lexeme.equals("read") | lexeme.equals("write") | lexeme.equals("return")
-                    | lexeme.equals("inherits") | lexeme.equals("let") | lexeme.equals("impl")) {
+                    | lexeme.equals("self") | lexeme.equals("inherits") | lexeme.equals("let") | lexeme.equals("impl")) {
                 type = lexeme;
             }
         }
@@ -433,4 +448,3 @@ public class LexicalAnalyzer {
         return curr_token;
     }
 }
-

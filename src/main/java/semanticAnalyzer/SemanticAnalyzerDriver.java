@@ -5,9 +5,6 @@ import java.io.File;
 
 public class SemanticAnalyzerDriver {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Please enter the path the file or folder");
-        }
         final String path = "testcases/SemanticAnalyserTest/";
         File f = new File(path);
         if (f.isDirectory()) {
